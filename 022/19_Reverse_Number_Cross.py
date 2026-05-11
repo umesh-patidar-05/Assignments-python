@@ -1,0 +1,8 @@
+'''
+19) Reverse Number Cross
+    5   5
+     4 4
+      3
+     4 4
+    5   5
+'''	
