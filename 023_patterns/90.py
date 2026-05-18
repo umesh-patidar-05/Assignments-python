@@ -12,20 +12,11 @@
 
 
 n=int(input("Enter n: "))
-for i in range(1,n):
+for i in range(1,2*n):
     print()
-    for s in range(1,i):
-        print(" ",end="")
-    for j in range(1,i+1):
-        if j==i:
-            print("*",end="")
+    for j in range(1,2*n):
+        if j==i or j==2*n-i:
+            print("*",end=" ")
         else:
-            print(" ",end="")
-    for k in range(n-i,-1,-1):
-        print(" ",end="")
-    for l in range(n-i+1,-1,-1):
-        if l==i:
-            print("*",end="")
-        else:    
-            print(" ",end="")
+            print(" ",end=" ")
    
