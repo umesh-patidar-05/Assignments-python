@@ -73,10 +73,29 @@ Program Closed Successfully
 
 while True:
     print("===== Smart Text Processing System =====\n1.  Reverse Complete String\n2.  Reverse Every Word\n3.  Reverse Word Order\n4.  Exit")
-    choice=int(input("Enter choice"))
+    choice=int(input("Enter choice "))
     match choice:
         case 1:
-            pass
+            string=input("Enter string: ")
+            revc=""
+            final=""
+            for ch in string:
+                if ch.isalpha():
+                   revc=ch+revc  
+            
+            j=0        
+            for c in string:
+                if c.isalpha():
+                    #print(revc[j],end="")
+                    final=final+revc[j]
+                    j+=1
+                else:
+                    #print(c,end="")
+                    final=final+c
+            print()
+            print(final)
+            
+    
         case 2:
             s=input("Enter the string ")
             words=s.split()
@@ -84,32 +103,38 @@ while True:
             while i<len(words):
                 word=words[i]
                 rev=""
-                j=len(word)-1
-                while j>=0:
-                    if j==len(word)-1:
-                        rev=rev+word[j].upper()
-                    else:    
-                        rev=rev+word[j]
-                    j=j-1
-                print(rev,end=" ")
+                if word.isalpha():
+                    j=len(word)-1
+                    while j>=0:
+                        if j==len(word)-1:
+                            rev=rev+word[j].upper()
+                        else:    
+                            rev=rev+word[j]
+                        j=j-1
+                    print(rev,end=" ")
+                   
+                else:
+                    print(word,end=" ")
                 i+=1   
+            print()  
+
+            
         case 3:
-            
-            
+                       
             str=input("Enter string: ")
             s=str.split()
             visit=[]
-            count=0
-            res=0
+            res=""
             for  ch1 in s:
                 if ch1 not in visit:
-                    count+=1
                     visit.append(ch1)
-            print(" ".join(visit))
+            res=" ".join(visit[::-1])
+            print(res)
             
 
 
         case 4:
+            print("Program Closed Successfully")
             break
             
             
