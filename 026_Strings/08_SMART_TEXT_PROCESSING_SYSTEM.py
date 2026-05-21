@@ -76,4 +76,41 @@ while True:
     choice=int(input("Enter choice"))
     match choice:
         case 1:
+            pass
+        case 2:
+            s=input("Enter the string ")
+            words=s.split()
+            i=0
+            while i<len(words):
+                word=words[i]
+                rev=""
+                j=len(word)-1
+                while j>=0:
+                    if j==len(word)-1:
+                        rev=rev+word[j].upper()
+                    else:    
+                        rev=rev+word[j]
+                    j=j-1
+                print(rev,end=" ")
+                i+=1   
+        case 3:
+            
+            
+            str=input("Enter string: ")
+            s=str.split()
+            visit=[]
+            count=0
+            res=0
+            for  ch1 in s:
+                if ch1 not in visit:
+                    count+=1
+                    visit.append(ch1)
+            print(" ".join(visit))
+            
+
+
+        case 4:
+            break
+            
+            
             
