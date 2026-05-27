@@ -5,7 +5,9 @@ input:
 S = "a1b!c2"
 
 output: 
-Alphabets: 3, Digits: 2, Special: 1
+Alphabets: 3
+Digits: 2
+Special: 1
 '''
 
 s=input("Enter s: ")
