@@ -3,7 +3,7 @@ Missing Number Detector
 ==========================
 
 Scenario
-
+ 
 Numbers from 1 to N should exist in a sequence, but one number is missing.
 
 Requirements

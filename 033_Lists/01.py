@@ -21,7 +21,7 @@ Input:
 
 Output:
 First Non-Repeating Number = 5
-
+ 
 Test Case 2
 
 Input:

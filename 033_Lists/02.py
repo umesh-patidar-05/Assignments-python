@@ -23,7 +23,7 @@ Output:
 First Repeating Number = 3
 
 Test Case 2
-
+  
 Input:
 [1, 2, 3, 4]
 

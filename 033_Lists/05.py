@@ -37,7 +37,7 @@ No Equilibrium Index Found
 
 ---
 '''
-
+ 
 
 
 
@@ -45,7 +45,7 @@ n=int(input("Enter length: "))
 list=[]
 for i in range(n):
     list.append(int(input(f"Enter Element{i+1}: ")))
-print(list)
+#print(list)
 print()
 index=-1
 for i in range(n):
