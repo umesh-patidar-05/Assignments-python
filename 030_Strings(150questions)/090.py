@@ -8,7 +8,7 @@ output:
 "ay"
 '''
 
-#not correct
+#NOT COMPLETE
 s=input("Enter string: ")
 pre=s[0]
 res=pre

@@ -20,6 +20,8 @@ for i in s:
             if p not in res:
                 res.append(p)
                 p=""
-print(res)        
+#print(res)        
+for i in res:
+    print(i,end=", ")
 
 

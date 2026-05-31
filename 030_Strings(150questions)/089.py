@@ -8,7 +8,7 @@ output
 '''
 
 
-#not correct
+#NOT COMPLETE
 s=input("Enter s: ")
 res=""
 for i in range(len(s)):

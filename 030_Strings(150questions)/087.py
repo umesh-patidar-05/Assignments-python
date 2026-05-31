@@ -8,7 +8,7 @@ output:
 "aab", "aba", "baa"
 '''
 
-#not correct
+#NOT COMPLETE
 s=input("Enter s:")
 res=[]
 
