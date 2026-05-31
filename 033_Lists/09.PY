@@ -108,29 +108,36 @@ Largest Happy Number = Not Available
 
 
 
-
-#SORRY BHAI YE WALA NHI HUA...........
-'''
 n=int(input("Enter length: "))
 list=[]
 for i in range(n):
     list.append(int(input(f"Enter Element{i+1}: ")))
 #print(list)
 print()
-
-
+happy=[]
 for i in list:
-    n=str(i)
-    res=1
-    num=0
-    for j in n:
-        j=int(j)
-        res=j*j
-        num+=res
-    print(num)    
-    while num==1 or num==i:
-        rem=num%10
-        res+=rem*rem
-        num//10
-    print(res)    
-'''
+    num=i
+    visit=[]
+    while num>0:
+        num=str(num)
+        res=0
+        for j in num:
+            j=int(j)
+            res+=j*j    
+        if res==1:
+            happy.append(i)
+            break
+        else:
+            if res not in visit:
+                visit.append(res)
+            else:
+                break
+        num=res
+#print(happy)
+print("Happy numbers = ",happy)  
+print("count = ",len(happy))
+happy.sort()            
+if happy!=[]:
+    print("Largest Happy Number = ",happy[len(happy)-1])         
+else:
+    print("Largest Happy Number = Not Available")
