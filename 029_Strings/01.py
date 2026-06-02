@@ -19,23 +19,24 @@ text
 abc
 '''
 
-# not correct
+#not complete
 s=input("Enter string ")
-s1=""
 visit=[]
-big=0
-bs=""
+sub=""
+final=[]
 for ch in s:
     if ch not in visit:
-        s1+=ch
+        sub=sub+ch
         visit.append(ch)
     else:
-        if len(s1)>big:
-            big=len(s1)
-            bs=s1
-            s1=""
+        final.append(sub)
+        sub=ch
         visit=[]
-        visit.append(ch)
-        
-print(bs)        
-        
+max=0
+res=""
+print(final)
+for i in final:
+    if len(i)>max:
+        res=i
+        max=len(i)    
+print(res)        

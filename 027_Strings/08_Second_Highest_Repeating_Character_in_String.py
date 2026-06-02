@@ -34,17 +34,7 @@ Second highest repeating character not found
 
 
 #incomplete
-s=input("Enter string: ")
-res=0
-for  c in s:
-    count=0
-    ch in s:
-        if ch==c:
-            
-    
 
-
-'''
 st=input("Enter news headline: ")
 words=st.split()
 gre=0
@@ -58,4 +48,3 @@ for word in words:
         gre=count
         big=word
 print(big)        
-'''

@@ -27,12 +27,12 @@ file file(1) image file(2) image(1) data
 str=input("Enter string: ")
 words=str.split()
 visit=[]
-for word in words:
-    i=1
-    if word not in visit:
-        
-        print(word,end=" ")
-        visit.append(word)
+for i in range(len(words)):
+    count=0
+    for j in range(i):
+        if words[i]==words[j]:
+            count+=1
+    if count==0:
+        print(words[i],end=" ")
     else:
-        print(word,f"({i})",end=" ")
-        i+=1
+        print(words[i],"(",count,")",sep="",end=" ")            

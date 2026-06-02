@@ -19,30 +19,21 @@ Google Search
 ### Output:
 
 text
-a1c1e2g2h1l1o2r1s1t1
+a1c1e2g2h1l1o2r1s1
 '''
 
 
-#not correct
-str=input("Enter string: ").lower()
-f=""
-s=""
-pre=""
-for ch in str:
-    if ch!=" ":
-        s=s+ch
-        
-f=sorted(s)
-pre=f[0]
-count=0
-i=1
-while i<len(f):
-    
-    if pre==f[i]:
-        count+=1
-        #pre=f[i]
-    else:
-        print(pre,count,end=" ")
-        #pre=f[i]
-    pre=f[i]    
-    i+=1    
+
+s=input("Enter string: ").lower()
+visit=[]
+for i in s:
+    if i!=" ":
+        if i not in visit:
+            visit.append(i)
+sort=sorted(visit)
+for i in sort:
+    count=0
+    for j in s:
+        if i==j:
+            count+=1
+    print(i,count,sep="",end="")        

@@ -21,19 +21,20 @@ dbca contains all unique characters: a,b,c,d
 '''
 
 
-#not correct
+#not done
 s = input("Enter String: ")
-result = ""
-
+visit=[]
+found=0
 for i in s:
-    found = 0
-
-    for j in result:
-        if i == j:
-            found = 1
-            break
-
-    if found == 0:
-        result += i
-
-print(result)
+    if i not in visit:
+        visit.append(i)
+for i in range(len(s)):
+    sub=[]
+    for j in range(len(s)):
+        sub=s[i:j+1]
+        for k in visit:
+            if k not in sub:
+                break    
+        else:
+            print(sub)
+            break    
