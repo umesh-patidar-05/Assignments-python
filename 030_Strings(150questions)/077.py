@@ -18,8 +18,7 @@ for i in range(lf):
     pre=s[0:i+1]
     #print(pre)
     for k in range(lf,l+1):
-        for l in range(lf,l+1):
-            suf=s[k:l+1]
+        suf=s[k:l+1]
         #print(suf)
         if suf==pre:
             if len(suf)>long:
