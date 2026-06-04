@@ -33,18 +33,37 @@ Second highest repeating character not found
 
 
 
-#incomplete
-
-st=input("Enter news headline: ")
-words=st.split()
-gre=0
-big=""
-for word in words:
+s=input("Enter String: ")
+highest1=""
+maxcount1=0
+for i in s:
     count=0
-    for w in words:
-        if w==word:
+    for j in s:
+        if j==i:
             count+=1
-    if  count>gre:
-        gre=count
-        big=word
-print(big)        
+            
+    if count>maxcount1:
+        highest1=i
+        maxcount1=count
+#print(highest1)
+
+s1=""
+for i in s:
+    if i==highest1:
+        continue
+    else:
+        s1=s1+i
+
+highest2=""
+maxcount2=0    
+for i in s1:
+    count=0
+    for j in s1:
+        if i==j:
+            count+=1
+    if count>=maxcount2:
+        highest2=i
+        maxcount2=count
+        
+print("Result: ")        
+print(highest2)
