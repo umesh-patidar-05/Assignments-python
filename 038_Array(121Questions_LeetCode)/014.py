@@ -27,3 +27,30 @@ Explanation:
 For nums1, nums1[2] and nums1[3] are not present in nums2. Since nums1[2] == nums1[3], their value is only included once and answer[0] = [3].
 Every integer in nums2 is present in nums1. Therefore, answer[1] = [].
 '''
+
+
+
+
+n1=int(input("Enter length of firsrt array: "))
+num1=[]
+for i in range(n1):
+    num1.append(int(input(f"Enter {i+1}st element: ")))
+n2=int(input("\nEnter length of second array: "))
+num2=[]
+for i in range(n2):
+    num2.append(int(input(f"Enter  {i+1}st element: ")))
+answer=[]
+res=[]
+for i in num1:
+    if i not in num2:
+        if i not in res:
+            res.append(i)
+answer.append(res)
+res=[]
+for i in num2:
+    if i not in num1:
+        if i not in res:
+            res.append(i)
+answer.append(res)
+print(answer)        
+    

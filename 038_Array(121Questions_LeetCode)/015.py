@@ -33,3 +33,19 @@ The first distinct maximum is 3.
 The second distinct maximum is 2 (both 2's are counted together since they have the same value).
 The third distinct maximum is 1.
 '''
+
+
+n=int(input("Enter length of array: "))
+nums=[]
+for i in range(n):
+    nums.append(int(input(f"Enter {i+1}st integer: ")))
+if len(nums)>=3:
+    nums.sort()
+    res=[]
+    for i in nums:
+        if i not in res:
+            res.append(i)
+    print(res[-3])        
+else:
+    nums.sort()
+    print(nums[-1])
