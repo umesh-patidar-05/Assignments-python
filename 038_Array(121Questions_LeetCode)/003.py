@@ -43,3 +43,19 @@ Explanation: Your function should return k = 5, with the first five elements of 
 Note that the five elements can be returned in any order.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 '''
+
+
+
+n=int(input("Enter length of array: "))
+arr=[]
+for i in range(n):
+    arr.append(int(input(f"Enter {i+1} Element: ")))
+val=int(input("Enter value to remove: "))
+res=[]
+for i in arr:
+    if i!=val:
+        res.append(i)
+        
+print("\nlength of new aarry: ",len(res)) 
+print("new array: ",res)       
+

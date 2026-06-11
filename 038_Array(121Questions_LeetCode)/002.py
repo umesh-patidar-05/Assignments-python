@@ -38,3 +38,17 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 '''
+
+
+nums=[]
+n=int(input("Enter length of list: "))
+print("Enter number in  non-decreasing order: ")
+for i in range(n):
+    nums.append(int(input()))
+res=[]
+for i in nums:
+    if i not in res:
+        res.append(i)
+print("output is: ")        
+print(len(res))
+print(res)

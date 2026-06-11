@@ -29,4 +29,27 @@ Output: [1,0]
 Explanation: The array represents the integer 9.
 Incrementing by one gives 9 + 1 = 10.
 Thus, the result should be [1,0].
-'''
+''' 
+
+
+
+
+
+
+
+n=int(input("Enter length of array: "))
+digits=[]
+for i in range(n):
+    digits.append(int(input(f"Enter {i+1} digit: ")))
+#print(digits)
+st=""
+for i in digits:
+    i=str(i)
+    st+=i
+st=int(st)
+st=st+1
+res=[]
+for i in str(st):
+    res.append(int(i))
+print(res)    
+    
