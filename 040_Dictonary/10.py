@@ -26,7 +26,6 @@ Sample Output:
 
 
 
-#incomplete
 emails = [
 "[ajay@gmail.com](mailto:ajay@gmail.com)",
 "[ravi@yahoo.com](mailto:ravi@yahoo.com)",
@@ -34,6 +33,10 @@ emails = [
 "[aman@outlook.com](mailto:aman@outlook.com)",
 "[abc@gmail.com](mailto:abc@gmail.com)"
 ]
-
-print(emails[0][0])
-
+dic={}
+for i in range(len(emails)):
+    j=emails[i].split("]")[0][1:].split("@")[1]
+    dic[j]=dic.get(j,0)+1
+#print(dic)
+for k,v in dic.items():
+    print(k,":",v)
