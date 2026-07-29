@@ -1,0 +1,207 @@
+1.
+
+Handling Book Invalid Quantity Exception in Library Software
+
+Mohan, a librarian is creating software to automate his work. As part of this, he needs to handle the exception if the purchased quantity is greater than the available quantity.
+Create a class named "Book" with the following attributes
+1. id - String  
+2. bookTitle - String
+3. authorName - String
+4. price - float
+5. quantity - int
+Create an Exception class called InvalidQuantityException and use it in the class called “Book”. Include a method called purchase(int quantity) taking the purchased quantity as a parameter and update the quantity available appropriately. Print suitable exception if the purchased quantity is more than the available quantity. Help Mohan to complete this task. Refer to sample input and output.
+Input format :
+The first line of the input consists of bookID as a String
+The second line of the input consists of bookTitle as String
+The third line of the input consists of authorName as String
+The fourth line of the input consists of price as a float
+The fifth line of the input consists of the quantity available as an integer
+The sixth line of the input consists of the quantity purchased as an positive integer
+Output format :
+The output should display the quantity available if it has or else throws an exception
+Refer to the sample output for reference.
+Sample test cases :
+Input 1 :
+YCW2019
+You can win
+Shiv Khera
+245
+25
+20
+Output 1 :
+Quantity Available : 5
+Input 2 :
+YCW2019
+You can win
+Shiv Khera
+245
+25
+30
+Output 2 :
+InvalidQuantityException: Quantity not available
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.
+
+Validating Email Address and Handling Custom Exceptions
+
+Write a program to validate an email address and display appropriate exceptions if any errors are encountered.
+Create 3 custom exception classes as below
+1. DotException
+2. AtTheRateException
+3. DomainException
+A typical email address should include a '.' character, '@' character, and a valid domain name. Valid domain names for practice include 'in', 'com', 'net', or 'biz'.
+Input format :
+The first line of input contains the email to be validated.
+Output format :
+Print 'Valid email address' if the email address provided meets the criteria, or 'Invalid email address' along with the appropriate exception message. Display 'Invalid Dot usage', 'Invalid @ usage', or 'Invalid Domain' messages based on the email ID provided.
+Refer to the sample output for reference.
+Sample test cases :
+Input 1 :
+sample@gmail.com
+Output 1 :
+Valid email address
+Input 2 :
+sample@gmail.com.
+Output 2 :
+DotException: Invalid Dot usage
+Invalid email address
+Input 3 :
+sample@g@mail.com
+Output 3 :
+AtTheRateException: Invalid @ usage
+Invalid email address
+Input 4 :
+sample@gmail.con
+Output 4 :
+DomainException: Invalid Domain
+Invalid email address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.
+
+Handling Driving License Registration Exceptions
+
+Write a program to approve or display suitable exceptions whenever a person tries to register for a driving license.
+Create a class named Main with the following attributes
+1. name - String
+2. userAge - int
+3. mark - int
+Minimum eligibility for obtaining a driving license:
+1. Age should be above 18 years old.
+2. A person should pass the road rules eligibility test (with above 80 marks) for a total mark of 100.
+Create two exceptions InvalidAgeForDrivingLicenseException and InvalidMarkForDrivingLicenseException to handle the above scenarios.
+Input format :
+The first line consists of a name a String.
+The second line consists of age as an integer.
+The next line consists of marks obtained as integers.
+Output format :
+The output should display "Approved" if he meets the criteria or the appropriate exception.
+Refer to the sample output for reference.
+Sample test cases :
+Input 1 :
+Guru
+33
+95
+Output 1 :
+Approved
+Input 2 :
+Smith
+2
+95
+Output 2 :
+InvalidAgeForDrivingLicenseException: Age should be more than 18 years old
+Input 3 :
+Jack
+-3
+95
+Output 3 :
+InvalidAgeForDrivingLicenseException: Invalid age
+Input 4 :
+Scott
+33
+75
+Output 4 :
+InvalidMarkForDrivingLicenseException: Mark should be more than 80
+Input 5 :
+Mathew
+33
+-45
+Output 5 :
+InvalidMarkForDrivingLicenseException: Invalid mark
+Input 6 :
+Guru
+33
+195
+Output 6 :
+InvalidMarkForDrivingLicenseException: Invalid mark
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+QNo 4:
+1. Bank Account Management
+Objective: Create a program to manage bank accounts and handle exceptions for insufficient balance and negative deposit amounts.
+
+Details:
+Create a BankAccount class with fields for accountNumber, accountHolder, and balance.
+Define two custom exceptions:
+InsufficientBalanceException for withdrawal amounts exceeding the balance.
+NegativeDepositException for deposits with negative amounts.
+Include methods for deposit(double amount) and withdraw(double amount) that throw the respective exceptions.
+In the main method, demonstrate various cases like successful transactions, insufficient balance, and invalid deposits.
