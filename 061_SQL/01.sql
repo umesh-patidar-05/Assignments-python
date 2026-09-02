@@ -1,5 +1,5 @@
 `
-1.
+1.   
 Create a table named Students with the following columns:
 
 StudentID (INT, Primary Key)
@@ -447,4 +447,5 @@ mysql> CREATE TABLE movietickets( ticketid INT PRIMARY KEY AUTO_INCREMENT, custo
 
 -- ERROR 3813 (HY000): Column check constraint 'movietickets_chk_1' references other column.
 
-INCOMPLETE
+INCOMPLETE 
+here functions neededed 

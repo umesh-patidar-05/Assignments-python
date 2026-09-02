@@ -271,14 +271,197 @@ Test joining year 2027.
 
 
 
-mysql> CREATE TABLE employee( emp_id INT PRIMARY KEY AUTO_INCREMENT, emp_name VARCHAR(50) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, phone VARCHAR(15) UNIQUE NOT NULL, department VARCHAR(30) NOT NULL, designation VARCHAR(30) NOT NULL, age INT NOT NULL CHECK( age BETWEEN 21 AND 60), salary DECIMAL(10,2) NOT NULL CHECK (salary > 15000), experience INT NOT NULL CHECK( experience BETWEEN 0 AND 35), joining_year INT NOT NULL, status VARCHAR(20) NOT NULL CHECK( status IN ('Active', 'Inactive', 'Leave')), bonus DECIMAL(10,2) NOT NULL CHECK(bonus > 0), CHECK(experience <= age-21 AND experience >= 10 AND salary >= 50000))  
 
 
 
 
-mysql> CREATE TABLE employee( emp_id INT PRIMARY KEY AUTO_INCREMENT, emp_name VARCHAR(50) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, phone VARCHAR(15) UNIQUE NOT NULL, department VARCHAR(30) NOT NULL, designation VARCHAR(30) NOT NULL, age INT NOT NULL CHECK( age BETWEEN 21 AND 60), salary DECIMAL(10,2) NOT NULL CHECK (salary > 15000), experience INT NOT NULL CHECK( experience BETWEEN 0 AND 35), joining_year INT NOT NULL, status VARCHAR(20) NOT NULL CHECK( status IN ('Active', 'Inactive', 'Leave')), bonus DECIMAL(10,2) NOT NULL CHECK(bonus > 0), CHECK(experience <= age-21 AND experience >= 10 AND salary >= 50000) AND ((department = 'IT' AND designation IN ('Developer', 'Tester', 'Team Lead')) OR (department = 'HR' AND designation IN ('HR Exclusive', 'HR Manager')) OR (department = 'Finance' AND designation IN ('Accountant', 'Finance Manager')) OR (department = 'Sales' AND designation IN ('Sales Exclusive', 'Sales Manager'))) AND () )
 
 
 
 
-CREATE TABLE employee( emp_id INT PRIMARY KEY AUTO_INCREMENT, emp_name VARCHAR(50) NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, phone VARCHAR(15) UNIQUE NOT NULL, department VARCHAR(30) NOT NULL, designation VARCHAR(30) NOT NULL, age INT NOT NULL CHECK( age BETWEEN 21 AND 60), salary DECIMAL(10,2) NOT NULL CHECK (salary > 15000), experience INT NOT NULL CHECK( experience BETWEEN 0 AND 35), joining_year INT NOT NULL, status VARCHAR(20) NOT NULL CHECK( status IN ('Active', 'Inactive', 'On Leave')), bonus DECIMAL(10,2) NOT NULL CHECK(bonus > 0), CHECK(experience <= age-21 AND experience >= 10 AND salary >= 50000) AND ((department = 'IT' AND designation IN ('Developer', 'Tester', 'Team Lead')) OR (department = 'HR' AND designation IN ('HR Exclusive', 'HR Manager')) OR (department = 'Finance' AND designation IN ('Accountant', 'Finance Manager')) OR (department = 'Sales' AND designation IN ('Sales Exclusive', 'Sales Manager'))) AND ((status = 'Active') OR (status = 'Inactive' AND bonus = 0) OR (status = 'On Leave' AND bonus <= salary*1.2)) )
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> CREATE TABLE employee(
+    ->     emp_id INT PRIMARY KEY AUTO_INCREMENT, 
+    ->     emp_name VARCHAR(50) NOT NULL, 
+    ->     email VARCHAR(100) UNIQUE NOT NULL, 
+    ->     phone VARCHAR(15) UNIQUE NOT NULL, 
+    ->     department VARCHAR(30) NOT NULL, 
+    ->     designation VARCHAR(30) NOT NULL, 
+    ->     age INT NOT NULL CHECK( age BETWEEN 21 AND 60), 
+    ->     salary DECIMAL(10,2) NOT NULL CHECK (salary > 15000), 
+    ->     experience INT NOT NULL CHECK( experience BETWEEN 0 AND 35), 
+    ->     joining_year INT NOT NULL, 
+    ->     status VARCHAR(20) NOT NULL CHECK( status IN ('Active', 'Inactive', 'On Leave')), 
+    ->     bonus DECIMAL(10,2) NOT NULL CHECK(bonus >= 0),
+    ->     CHECK(experience <= age-21),
+    ->     CHECK(experience < 10 OR salary >= 50000),
+    ->     CHECK(
+    ->         (department = 'IT' AND designation IN ('Developer', 'Tester', 'Team Lead'))
+    ->         OR
+    ->         (department = 'HR' AND designation IN( 'HR Executive', 'HR Manager'))
+    ->         OR
+    ->         (department = 'Finance' AND designation IN( 'Accountant', 'Finance Manager'))
+    ->         OR
+    ->         (department = 'Sales' AND designation IN( 'Sales Executive', 'Sales Manager'))
+    ->     ),
+    ->     CHECK( (status = 'Active' AND bonus >=0) OR (status = 'Inactive' AND bonus = 0) OR (status = 'On Leave' AND bonus <= salary*0.2)),
+    ->     CHECK( experience <= 2026 - joining_year AND joining_year <= 2026)
+    -> );
+
+-- Query OK, 0 rows affected (0.77 sec)
+
+
+
+
+
+mysql> DESC employee;
+
+-- +--------------+---------------+------+-----+---------+----------------+
+-- | Field        | Type          | Null | Key | Default | Extra          |
+-- +--------------+---------------+------+-----+---------+----------------+
+-- | emp_id       | int           | NO   | PRI | NULL    | auto_increment |
+-- | emp_name     | varchar(50)   | NO   |     | NULL    |                |
+-- | email        | varchar(100)  | NO   | UNI | NULL    |                |
+-- | phone        | varchar(15)   | NO   | UNI | NULL    |                |
+-- | department   | varchar(30)   | NO   |     | NULL    |                |
+-- | designation  | varchar(30)   | NO   |     | NULL    |                |
+-- | age          | int           | NO   |     | NULL    |                |
+-- | salary       | decimal(10,2) | NO   |     | NULL    |                |
+-- | experience   | int           | NO   |     | NULL    |                |
+-- | joining_year | int           | NO   |     | NULL    |                |
+-- | status       | varchar(20)   | NO   |     | NULL    |                |
+-- | bonus        | decimal(10,2) | NO   |     | NULL    |                |
+-- +--------------+---------------+------+-----+---------+----------------+
+-- 12 rows in set (0.00 sec)
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES 
+    -> ('Aarav Sharma', 'aarav@example.com', '9876543201', 'IT', 'Developer', 25, 40000.00, 4, 2022, 'Active', 5000.00);
+
+-- Query OK, 1 row affected (0.07 sec)
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES
+    -> ('Bhavna Roy', 'bhavna@example.com', '9876543202', 'IT', 'Team Lead', 38, 60000.00, 12, 2014, 'Active', 10000.00);
+
+-- Query OK, 1 row affected (0.09 sec)
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES
+    -> ('Chetan Verma', 'chetan@example.com', '9876543203', 'Finance', 'Accountant', 30, 50000.00, 5, 2021, 'Inactive', 0.00);
+
+-- Query OK, 1 row affected (0.07 sec)
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES
+    -> ('Divya Nair', 'divya@example.com', '9876543204', 'HR', 'HR Manager', 40, 50000.00, 15, 2011, 'On Leave', 10000.00);
+
+-- Query OK, 1 row affected (0.07 sec)
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES
+    -> ('Eshan Kapoor', 'eshan@example.com', '9876543205', 'Sales', 'Sales Executive', 28, 45000.00, 6, 2020, 'Active', 7000.00);
+
+-- Query OK, 1 row affected (0.08 sec)
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES ('Test 1', 't1@example.com', '9999900001', 'IT', 'Developer', 25, 30000.00, 10, 2024, 'Active', 1000.00);
+
+-- ERROR 3819 (HY000): Check constraint 'employee_chk_10' is violated.
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES ('Test 2', 't2@example.com', '9999900002', 'IT', 'Team Lead', 35, 35000.00, 12, 2014, 'Active', 2000.00);
+
+-- ERROR 3819 (HY000): Check constraint 'employee_chk_7' is violated.
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES ('Test 3', 't3@example.com', '9999900003', 'IT', 'HR Manager', 30, 40000.00, 5, 2021, 'Active', 2000.00);
+
+-- ERROR 3819 (HY000): Check constraint 'employee_chk_8' is violated.
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES ('Test 4', 't4@example.com', '9999900004', 'Finance', 'Accountant', 28, 50000.00, 4, 2022, 'Inactive', 5000.00);
+
+-- ERROR 3819 (HY000): Check constraint 'employee_chk_9' is violated.
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES ('Test 5', 't5@example.com', '9999900005', 'HR', 'HR Executive', 29, 50000.00, 4, 2022, 'On Leave', 15000.00);
+
+-- ERROR 3819 (HY000): Check constraint 'employee_chk_9' is violated.
+
+
+
+
+
+mysql> INSERT INTO employee (emp_name, email, phone, department, designation, age, salary, experience, joining_year, status, bonus)
+    -> VALUES ('Test 5', 't5@example.com', '9999900005', 'HR', 'HR Executive', 29, 50000.00, 4, 2022, 'On Leave', 15000.00);
+
+-- ERROR 3819 (HY000): Check constraint 'employee_chk_9' is violated.
+
+
+
+
+
+mysql> SELECT * FROM employee;
+
+-- +--------+--------------+--------------------+------------+------------+-----------------+-----+----------+------------+--------------+----------+----------+
+-- | emp_id | emp_name     | email              | phone      | department | designation     | age | salary   | experience | joining_year | status   | bonus    |
+-- +--------+--------------+--------------------+------------+------------+-----------------+-----+----------+------------+--------------+----------+----------+
+-- |      1 | Aarav Sharma | aarav@example.com  | 9876543201 | IT         | Developer       |  25 | 40000.00 |          4 |         2022 | Active   |  5000.00 |
+-- |      2 | Bhavna Roy   | bhavna@example.com | 9876543202 | IT         | Team Lead       |  38 | 60000.00 |         12 |         2014 | Active   | 10000.00 |
+-- |      3 | Chetan Verma | chetan@example.com | 9876543203 | Finance    | Accountant      |  30 | 50000.00 |          5 |         2021 | Inactive |     0.00 |
+-- |      4 | Divya Nair   | divya@example.com  | 9876543204 | HR         | HR Manager      |  40 | 50000.00 |         15 |         2011 | On Leave | 10000.00 |
+-- |      5 | Eshan Kapoor | eshan@example.com  | 9876543205 | Sales      | Sales Executive |  28 | 45000.00 |          6 |         2020 | Active   |  7000.00 |
+-- +--------+--------------+--------------------+------------+------------+-----------------+-----+----------+------------+--------------+----------+----------+
+-- 5 rows in set (0.00 sec)
