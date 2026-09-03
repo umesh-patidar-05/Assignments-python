@@ -1,0 +1,727 @@
+MYSQL STRING FUNCTIONS ASSIGNMENT
+Scenario
+
+A company wants to manage and analyze employee information using MySQL. The HR department needs to prepare different employee reports by formatting employee names, processing email addresses, extracting specific parts of employee information, removing unwanted spaces, and creating employee summaries.
+
+You are given the following table and employee data. Write appropriate SELECT queries to perform the required operations.
+
+Table Name: employee_string
+Column	Data Type	Constraint
+emp_id	INT	PRIMARY KEY, AUTO_INCREMENT
+emp_name	VARCHAR(50)	NOT NULL
+email	VARCHAR(100)	NOT NULL
+department	VARCHAR(30)	NOT NULL
+designation	VARCHAR(50)	NOT NULL
+city	VARCHAR(30)	NOT NULL
+phone	VARCHAR(15)	NOT NULL
+DATA
+('  Rahul Sharma  ', 'rahul.sharma@gmail.com', 'it', 'software developer', 'Indore', '9876543210'),
+('Priya Verma', 'priya.verma@yahoo.com', 'hr', 'hr executive', 'Bhopal', '9876501234'),
+('  Amit Patel', 'amit.patel@gmail.com', 'finance', 'account executive', 'Indore', '9123456780'),
+('Neha Singh  ', 'neha.singh@company.com', 'marketing', 'marketing manager', 'Mumbai', '9988776655'),
+('Rohit Jain', 'rohit.jain@gmail.com', 'it', 'team leader', 'Pune', '9090909090'),
+('  Sneha Gupta ', 'sneha.gupta@yahoo.com', 'sales', 'sales executive', 'Delhi', '9012345678'),
+('Vikas Yadav', 'vikas.yadav@gmail.com', 'finance', 'senior accountant', 'Jaipur', '9345678901'),
+('Anjali Mehta', 'anjali.mehta@company.com', 'hr', 'hr manager', 'Indore', '9765432109'),
+('  Karan Joshi  ', 'karan.joshi@gmail.com', 'it', 'database administrator', 'Bhopal', '8899776655'),
+('Meena Kapoor', 'meena.kapoor@yahoo.com', 'sales', 'sales manager', 'Mumbai', '9001122334');
+QUESTIONS
+Q1.
+
+The HR department wants to display all employee names in capital letters for an official employee report.
+
+Q2.
+
+The company wants all department names to be displayed in small letters for standardization.
+
+Q3.
+
+HR wants to know the length of each employee's name.
+
+Display the employee name along with its length.
+
+Q4.
+
+The HR report should display employee names in the following format:
+
+Employee: Rahul Sharma
+Employee: Priya Verma
+
+Create this output for every employee.
+
+Q5.
+
+HR wants to display only the first 5 characters of each employee's name.
+
+Q6.
+
+Some employee names contain unnecessary spaces before or after the name.
+
+Display all employee names after removing the unwanted spaces.
+
+Q7.
+
+The company wants to replace the Gmail domain with the company's domain in the displayed email addresses.
+
+For example:
+
+rahul.sharma@gmail.com
+
+should be displayed as:
+
+rahul.sharma@company.com
+
+Do not modify the original table data.
+
+Q8.
+
+HR wants to create a temporary employee code using the first 3 characters of the employee's name.
+
+Display the employee name along with the generated code.
+
+Q9.
+
+For privacy purposes, the company wants to display only the last 4 digits of each employee's phone number.
+
+Q10.
+
+The HR department wants to display the employee's location in the following format:
+
+Indore-IT
+Bhopal-HR
+Mumbai-Marketing
+
+Combine the city and department using - between them.
+
+Q11.
+
+For a testing purpose, the IT department wants to display every employee's name in reverse order.
+
+Q12.
+
+The IT department wants to find the position of the @ symbol in every employee's email address.
+
+Display the email address along with the position.
+
+Combined Questions
+Q13.
+
+HR wants to create an official employee report in the following format:
+
+RAHUL SHARMA - SOFTWARE DEVELOPER
+
+Both the employee name and designation should appear in capital letters.
+
+Q14.
+
+Before generating the final report, HR wants to remove unwanted spaces from employee names and then display the cleaned names in capital letters.
+
+Q15.
+
+The company wants a final employee summary in the following format:
+
+RAHUL SHARMA | SOFTWARE DEVELOPER | INDORE | 3210
+
+The report should contain:
+
+Employee name without unwanted spaces and in capital letters
+Designation in capital letters
+City in capital letters
+Last 4 digits of phone number
+| as separator between all values
+
+Condition: Do not modify the original table data. Use only SELECT queries for all questions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MYSQL NUMERIC FUNCTION
+ 
+Create a table named:
+
+numeric_practice
+
+The table must contain these columns:
+
+Column	Required Data Type
+id	INT, Primary Key
+employee_name	VARCHAR(50)
+salary	DECIMAL(10,2)
+bonus	DECIMAL(10,2)
+experience	DECIMAL(5,2)
+score	DECIMAL(5,2)
+number_value	DECIMAL(10,3)
+Task 2 — Insert Employee Data
+
+Insert the following 15 employee records into your table:
+
+ID	Employee	Salary	Bonus	Experience	Score	Number Value
+1	Amit	45000.75	5000.50	2.5	78.456	-25.678
+2	Rahul	52000.40	6500.25	3.2	85.789	15.234
+3	Priya	38500.90	4200.75	1.8	67.345	-12.567
+4	Neha	61000.55	8000.60	4.5	91.678	34.789
+5	Rohit	47500.25	5500.40	2.2	72.123	-45.345
+6	Sneha	72000.80	9500.90	5.7	88.567	25.678
+7	Vikas	33000.35	3000.20	1.1	59.876	-18.234
+8	Pooja	56500.65	7000.35	3.8	82.456	42.567
+9	Karan	68000.45	8500.55	4.2	95.234	-33.789
+10	Anjali	41000.70	4500.80	2.7	74.678	19.456
+11	Suresh	55000.30	6200.45	3.5	69.345	-27.567
+12	Kavita	49500.95	5800.65	2.9	86.789	51.234
+13	Manish	76000.60	10000.75	6.3	92.567	-61.789
+14	Riya	36000.85	3500.30	1.5	63.456	28.345
+15	Arjun	64000.20	7800.50	4.8	89.123	-39.456
+
+Q1 — ABS()
+
+Display the employee name, number_value, and the absolute value of number_value.
+
+Expected columns:
+
+employee_name | number_value | absolute_value
+Q2 — CEIL()
+
+Display the employee name, salary, and salary rounded upward to the nearest whole number.
+
+Expected columns:
+
+employee_name | salary | rounded_salary
+Q3 — FLOOR()
+
+Display the employee name, salary, and salary rounded downward to the nearest whole number.
+
+Expected columns:
+
+employee_name | salary | rounded_salary
+Q4 — ROUND()
+
+Display the employee name, score, and score rounded to 1 decimal place.
+
+Expected columns:
+
+employee_name | score | rounded_score
+Q5 — MOD()
+
+Find all employees whose id is even using the MOD() function.
+
+Expected result: IDs 2, 4, 6, 8, 10, 12, 14.
+
+Write these 5 queries yourself and send them to me. I'll check each one and explain any mistake.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 📘 SQL ASSIGNMENT — DATE AND TIME FUNCTIONS
+
+Employee Attendance & HR Management System
+
+A company wants to maintain employee and attendance information in a **single table**. The HR department wants to analyze employee **joining dates, birth dates, project dates, attendance dates, login times, logout times, and working duration** using SQL Date & Time functions.
+
+# Create a Table
+
+Create a table with these columns:
+
+| Column               | Data Type                        |
+| -------------------- | -------------------------------- |
+| 'attendance_id'      | INT, Primary Key, Auto Increment |
+| 'employee_id'        | INT                              |
+| 'employee_name'      | VARCHAR(50)                      |
+| 'department'         | VARCHAR(30)                      |
+| 'city'               | VARCHAR(30)                      |
+| 'date_of_birth'      | DATE                             |
+| 'joining_date'       | DATE                             |
+| 'project_start_date' | DATETIME                         |
+| 'attendance_date'    | DATE                             |
+| 'login_time'         | DATETIME                         |
+| 'logout_time'        | DATETIME                         |
+| 'salary'             | DECIMAL(10,2)                    |
+| 'attendance_status'  | VARCHAR(20)                      |
+
+---
+
+# Data
+
+Insert at least **10 attendance records** for employees from different departments and cities.
+
+Make sure the data contains:
+
+* Different birth dates
+* Different joining dates
+* Different project start dates
+* Different attendance dates
+* Different login/logout times
+* 'Present' and 'Late' attendance statuses
+* Employees with different salaries
+* At least two records where the same employee appears on different attendance dates
+
+---
+
+# Questions
+
+## 🟢 Basic Date Functions
+
+### Q1. DAY()
+
+Display 'employee_name', 'date_of_birth', and the **day of birth** using the 'DAY()' function.
+
+---
+
+### Q2. DAYOFMONTH()
+
+Display 'employee_name', 'attendance_date', and the **day of the month** on which the employee attended.
+
+---
+
+### Q3. MONTH()
+
+Display 'employee_name', 'date_of_birth', and the **birth month number** using 'MONTH()'.
+
+---
+
+### Q4. MONTH()
+
+Find employees whose **attendance month is August** using 'MONTH()'.
+
+---
+
+### Q5. YEAR()
+
+Display 'employee_name', 'joining_date', and the **year in which the employee joined**.
+
+---
+
+### Q6. YEAR()
+
+Find employees whose **attendance records belong to the year 2026**.
+
+---
+
+### Q7. QUARTER()
+
+Display 'employee_name', 'joining_date', and the **quarter in which the employee joined** using 'QUARTER()'.
+
+---
+
+### Q8. WEEK()
+
+Display 'employee_name', 'attendance_date', and the **week number of their attendance date** using 'WEEK()'.
+
+---
+
+### Q9. DAYOFWEEK()
+
+Display 'employee_name', 'attendance_date', and the **weekday number** of their attendance date using 'DAYOFWEEK()'.
+
+---
+
+### Q10. DAYOFWEEK()
+
+Find attendance records where the employee attended on a **Saturday or Sunday**.
+
+---
+
+# 🟡 Date Name Functions
+
+### Q11. MONTHNAME()
+
+Display 'employee_name', 'joining_date', and the **name of the joining month** using 'MONTHNAME()'.
+
+---
+
+### Q12. DAYNAME()
+
+Display 'employee_name', 'attendance_date', and the **name of the attendance day** using 'DAYNAME()'.
+
+---
+
+### Q13. MONTHNAME()
+
+Display 'employee_name', 'date_of_birth', and the **name of the birth month**.
+
+---
+
+### Q14. DAYNAME()
+
+Find employees whose attendance occurred on a **Monday**.
+
+---
+
+### Q15. DAYNAME() + MONTHNAME()
+
+Display 'employee_name', 'attendance_date', **day name**, and **month name**.
+
+---
+
+# 🔵 Current Date & Time Functions
+
+### Q16. CURDATE()
+
+Display the **current date** using 'CURDATE()'.
+
+---
+
+### Q17. CURRENT_DATE()
+
+Display the current date using 'CURRENT_DATE()'.
+
+---
+
+### Q18. NOW()
+
+Display the **current date and time** using 'NOW()'.
+
+---
+
+### Q19. CURRENT_TIMESTAMP()
+
+Display the **current date and time** using 'CURRENT_TIMESTAMP()'.
+
+---
+
+### Q20. NOW() vs CURRENT_TIMESTAMP()
+
+Display both 'NOW()' and 'CURRENT_TIMESTAMP()' in the same query and observe the result.
+
+---
+
+### Q21. CURTIME()
+
+Display the **current time** using 'CURTIME()'.
+
+---
+
+### Q22. CURRENT_TIME()
+
+Display the current time using 'CURRENT_TIME()'.
+
+---
+
+### Q23. Date and Time Components
+
+Display the **current date, current time, and current date-time** using appropriate MySQL functions.
+
+---
+
+# 🟠 EXTRACT() Function
+
+### Q24. EXTRACT()
+
+Extract the **year** from 'joining_date'.
+
+---
+
+### Q25. EXTRACT()
+
+Extract the **month** from 'date_of_birth'.
+
+---
+
+### Q26. EXTRACT()
+
+Extract the **day** from 'attendance_date'.
+
+---
+
+### Q27. EXTRACT()
+
+Extract the **hour** from 'login_time'.
+
+---
+
+### Q28. EXTRACT()
+
+Extract the **minute** from 'login_time'.
+
+---
+
+### Q29. EXTRACT()
+
+Extract the **second** from 'login_time'.
+
+---
+
+# 🟣 Date Addition & Subtraction
+
+### Q30. DATE_ADD()
+
+Calculate the date that occurs **30 days after each employee's joining date**.
+
+---
+
+### Q31. DATE_ADD()
+
+Calculate the **first work anniversary** of every employee.
+
+---
+
+### Q32. DATE_ADD()
+
+Calculate the date exactly **3 months after each employee's project start date**.
+
+---
+
+### Q33. DATE_SUB()
+
+Calculate the date **30 days before each attendance date**.
+
+---
+
+### Q34. DATE_SUB()
+
+Calculate the date **1 year before each employee's joining date**.
+
+---
+
+### Q35. DATE_ADD()
+
+Assuming the company's retirement age is **60 years**, calculate the expected retirement date of every employee.
+
+---
+
+# 🔴 Date Difference Functions
+
+### Q36. DATEDIFF()
+
+Calculate the **number of days between the employee's joining date and attendance date**.
+
+---
+
+### Q37. DATEDIFF()
+
+Calculate the **number of days between the employee's joining date and the current date**.
+
+---
+
+### Q38. TIMESTAMPDIFF()
+
+Calculate the approximate **number of completed years of experience** of every employee based on their joining date.
+
+---
+
+### Q39. TIMESTAMPDIFF()
+
+Calculate the approximate **age of every employee** using their date of birth.
+
+---
+
+### Q40. TIMESTAMPDIFF()
+
+Calculate the total **working hours** between 'login_time' and 'logout_time'.
+
+---
+
+### Q41. TIMESTAMPDIFF()
+
+Calculate the total **working minutes** between 'login_time' and 'logout_time'.
+
+---
+
+### Q42. TIMEDIFF()
+
+Calculate the **working duration** between 'login_time' and 'logout_time' using 'TIMEDIFF()'.
+
+---
+
+# 🟤 Date & Time Formatting
+
+### Q43. DATE()
+
+Display 'employee_name', 'project_start_date', and only the **date portion** of 'project_start_date'.
+
+---
+
+### Q44. TIME()
+
+Display 'employee_name', 'login_time', and only the **time portion** of 'login_time'.
+
+---
+
+### Q45. DATE_FORMAT()
+
+Display the employee's joining date in the format:
+
+**DD-MM-YYYY**
+
+Example:
+
+'15-04-2022'
+
+---
+
+### Q46. DATE_FORMAT()
+
+Display the attendance date in the format:
+
+**DD Month YYYY**
+
+Example:
+
+'05 August 2026'
+
+---
+
+### Q47. DATE_FORMAT()
+
+Display the login time in **12-hour format with AM/PM**.
+
+Example:
+
+'09:30:00 AM'
+
+---
+
+# 🟤 Other MySQL Date Functions
+
+### Q48. LAST_DAY()
+
+Display 'employee_name', 'joining_date', and the **last date of the month in which the employee joined**.
+
+---
+
+### Q49. STR_TO_DATE()
+
+Convert the following strings into MySQL date values using 'STR_TO_DATE()':
+
+```text
+'2026-08-15'
+'2025-12-25'
+'2024-02-29'
+```
+
+---
+
+# 🏆 Q50. Final HR Attendance Report
+
+Prepare a complete attendance report containing:
+
+* Employee Name
+* Department
+* Attendance Date
+* Day Name
+* Login Time
+* Logout Time
+* Working Hours
+* Working Minutes
+* Attendance Status
+* Joining Date
+* Years of Experience
+
+Use appropriate **MySQL Date & Time functions** such as:
+
+'DAYNAME()', 'TIME()', 'TIMESTAMPDIFF()', 'DATE_FORMAT()', etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Create a table with these columns:
+
+Column	Data Type
+staff_id	INT, Primary Key, Auto Increment
+staff_name	VARCHAR(50)
+department	VARCHAR(30)
+city	VARCHAR(30)
+salary	DECIMAL(10,2)
+experience	INT
+age	INT
+email	VARCHAR(100), NULL allowed
+phone	VARCHAR(15), NULL allowed
+bonus	DECIMAL(10,2), NULL allowed
+status	VARCHAR(20)
+Data
+
+Q1. IF()
+Display staff_name, salary, and salary status. If salary is ₹60,000 or more, show 'High Salary', otherwise 'Low Salary'.
+
+Q2. IF()
+Display staff_name and experience status. If experience is 5 or more, show 'Experienced', otherwise 'Fresher'.
+
+Q3. IFNULL()
+Display staff_name and email. If email is NULL, display 'Email Not Available'.
+
+Q4. COALESCE()
+Display staff_name and contact information. Give priority to phone → email → 'No Contact'.
+
+Q5. NULLIF()
+Display staff_name and salary. If salary is exactly ₹50,000, return NULL; otherwise return the actual salary.
+
+Q6. CASE
+Create a salary category:
+
+salary >= 80,000 → 'High'
+salary >= 60,000 → 'Medium'
+Otherwise → 'Low'
+
+Q7. CASE + AND/OR
+Create an employee category:
+IT + experience >= 5 → 'IT Experienced'
+Finance + salary >= 70,000 → 'Finance High Earner'
+HR + experience >= 3 → 'HR Experienced'
+Otherwise → 'Other'
