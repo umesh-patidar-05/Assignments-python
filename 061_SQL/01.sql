@@ -443,9 +443,62 @@ mysql> SELECT * FROM events;
 
 
 
-mysql> CREATE TABLE movietickets( ticketid INT PRIMARY KEY AUTO_INCREMENT, customername VARCHAR(50), showtime DATETIME CHECK( showtime >= HOUR(bookingtime) + 2), bookingTime DATETIME DEFAULT CURRENT_TIMESTAMP);
+mysql> CREATE TABLE movietickets( ticketid INT PRIMARY KEY AUTO_INCREMENT, customername VARCHAR(50), showtime DATETIME , bookingTime DATETIME DEFAULT CURRENT_TIMESTAMP, CHECK (showtime >= DATE_ADD(bookingTime, INTERVAL 2 HOUR)));
 
--- ERROR 3813 (HY000): Column check constraint 'movietickets_chk_1' references other column.
+-- Query OK, 0 rows affected (0.18 sec) 
 
-INCOMPLETE 
-here functions neededed 
+
+
+mysql> DESC movietickets;
+
+-- +--------------+-------------+------+-----+-------------------+-------------------+
+-- | Field        | Type        | Null | Key | Default           | Extra             |
+-- +--------------+-------------+------+-----+-------------------+-------------------+
+-- | ticketid     | int         | NO   | PRI | NULL              | auto_increment    |
+-- | customername | varchar(50) | YES  |     | NULL              |                   |
+-- | showtime     | datetime    | YES  |     | NULL              |                   |
+-- | bookingTime  | datetime    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+-- +--------------+-------------+------+-----+-------------------+-------------------+
+-- 4 rows in set (0.06 sec)
+
+
+
+
+mysql> INSERT INTO MovieTickets (CustomerName, ShowTime)
+    -> VALUES
+    -> ('Rahul Sharma', DATE_ADD(NOW(), INTERVAL 3 HOUR)),
+    -> ('Priya Verma', DATE_ADD(NOW(), INTERVAL 5 HOUR)),
+    -> ('Amit Patel', DATE_ADD(NOW(), INTERVAL 2 HOUR));
+
+-- Query OK, 3 rows affected (0.01 sec)
+-- Records: 3  Duplicates: 0  Warnings: 0
+
+
+
+
+mysql> SELECT * FROM movietickets;
+
+-- +----------+--------------+---------------------+---------------------+
+-- | ticketid | customername | showtime            | bookingTime         |
+-- +----------+--------------+---------------------+---------------------+
+-- |        1 | Rahul Sharma | 2026-09-04 17:57:12 | 2026-09-04 14:57:12 |
+-- |        2 | Priya Verma  | 2026-09-04 19:57:12 | 2026-09-04 14:57:12 |
+-- |        3 | Amit Patel   | 2026-09-04 16:57:12 | 2026-09-04 14:57:12 |
+-- +----------+--------------+---------------------+---------------------+
+-- 3 rows in set (0.00 sec)
+
+
+
+
+mysql> SELECT *
+    -> FROM MovieTickets
+    -> WHERE ShowTime > NOW();
+
+-- +----------+--------------+---------------------+---------------------+
+-- | ticketid | customername | showtime            | bookingTime         |
+-- +----------+--------------+---------------------+---------------------+
+-- |        1 | Rahul Sharma | 2026-09-04 17:57:12 | 2026-09-04 14:57:12 |
+-- |        2 | Priya Verma  | 2026-09-04 19:57:12 | 2026-09-04 14:57:12 |
+-- |        3 | Amit Patel   | 2026-09-04 16:57:12 | 2026-09-04 14:57:12 |
+-- +----------+--------------+---------------------+---------------------+
+-- 3 rows in set (0.00 sec)
