@@ -581,7 +581,7 @@ Display 'employee_name', 'login_time', and only the **time portion** of 'login_t
 
 ---
 
-### Q45. DATE_FORMAT()
+### Q45. DATE_FORMAT()  
 
 Display the employee's joining date in the format:
 
