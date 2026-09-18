@@ -579,11 +579,52 @@ while True:
                 print(f"   {row[0]}           {row[1]}         {row[2]} ")               
 
         case 13:
+            query = "SELECT d.dept_name, COUNT(*) FROM employee_pdbc AS e INNER JOIN department_pdbc AS d ON d.dept_id = e.dept_id GROUP BY d.dept_name HAVING count(*) > 1"
+            Cursor.execute(query)
+            rows = Cursor.fetchall()
+            print("Department    Employee Count ")
+            print("---------------------------------")
+            for row in rows:
+                print(f"    {row[0]}         {row[1]} ")   
 
-         pass
+        case 14:
+            query = "SELECT e.emp_name, m.emp_name FROM employee_pdbc AS e JOIN employee_pdbc AS m ON m.emp_id = e.manager_id"
+            Cursor.execute(query)
+            rows = Cursor.fetchall()
+            print("Employee Name    MAnager Name")
+            print("---------------------------------")
+            for row in rows:
+                print(f"    {row[0]}         {row[1]} ") 
 
-        case 13:
-            print("Thank youuu....")
+        case 15:
+            query = "SELECT d.dept_id, d.dept_name FROM department_pdbc AS d LEFT JOIN employee_pdbc AS e ON e.dept_id = d.dept_id WHERE e.dept_id IS NULL"
+            Cursor.execute(query)
+            rows = Cursor.fetchall()
+            print("Employee Name    Manager Name")
+            print("---------------------------------")
+            for row in rows:
+                print(f"    {row[0]}         {row[1]} ")             
+
+        case 16:
+            try:
+                emp_idd = int(input("Enter Employee ID: "))
+                emp_name = input("Enter Employee Name: ")
+                salary = float(input("Enter Salary: "))
+                title = input("Enter Job Title: ")
+                dept_id = int(input("Enter Department ID: "))
+                man_id = int(input("Enter Manager ID: "))
+                query = "INSERT INTO employee_pdbc VALUES( %s, %s, %s, %s, %s)"
+                Cursor.execute(query, (emp_idd, emp_name, salary, title, dept_id, man_id ))
+                conn.commit()
+
+            except Exception:
+                print("Employee could not be inserted because the department ID does not exist in the parent table.")    
+
+            else:
+                print("Employee inserted successfully.") 
+
+        case 17:
+            print("Thank youu....")
             break
 
         case _:
