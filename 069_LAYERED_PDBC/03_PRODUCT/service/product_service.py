@@ -4,7 +4,7 @@ class ProductService:
     def displayproduct(self):
         print("processing employee request")
         dao = ProductDao()
-        dao.getproduct()
+        return dao.getproduct()
 
     def add_product(self, product):
         print("Service adding product")
