@@ -53,4 +53,28 @@ class EmployeeDao:
         conn.close()
         print("data saved successful plz check table")
 
-    
+
+    def update_employee_salary_by_id(self, id, salary):
+        db = Database()
+        conn = db.connect()
+        cursor = conn.cursor()
+        query = "UPDATE pdemployee SET salary = %s WHERE id = %s"
+        cursor.execute(query, (salary, id))
+        conn.commit()
+        if cursor.rowcount != 0:
+            print("Employee salary update successfully")
+
+        else:
+            print("no employee found") 
+
+    def delete_employee_id(self, id):
+        db = Database()
+        conn = db.connect()
+        cursor = conn.cursor()
+        query = "DELETE FROM pdemployee WHERE id = %s"
+        cursor.execute(query, (id,))
+        conn.commit()
+        if cursor.rowcount !=0:
+            print("Employee delete successfully")
+        else:
+            print("NO Employee existes with this id")    

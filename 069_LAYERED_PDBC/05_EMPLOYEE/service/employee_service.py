@@ -18,4 +18,11 @@ class EmployeeService:
         print("service adding employee")
         dao = EmployeeDao()
         dao.save_employee(employee)    
-    
+
+    def change_employee_salary_by_id(self,id, salary):
+        dao = EmployeeDao()
+        dao.update_employee_salary_by_id(id , salary)
+
+    def remove_student_by_roll_no(self, id):
+        dao = EmployeeDao()
+        dao.delete_employee_id(id)
