@@ -937,4 +937,33 @@ mysql> SELECT e.emp_id, e.emp_name, e.salary, (SELECT dept_name FROM department 
 12 rows in set (0.00 sec)
 
 
-till 45 complete
+
+
+
+
+mysql> SELECT dept_id, AVG(salary) FROM employee GROUP BY dept_id HAVING AVG(salary) > (SELECT AVG(salary) FROM employee);
++---------+--------------+
+| dept_id | AVG(salary)  |
++---------+--------------+
+|       2 | 53333.333333 |
+|       3 | 53333.333333 |
+|       4 | 50000.000000 |
++---------+--------------+
+3 rows in set (0.01 sec)
+
+
+
+
+
+mysql> SELECT dept_id, AVG(salary) FROM employee GROUP BY dept_id HAVING AVG(salary) < (SELECT AVG(salary) FROM employee);
++---------+--------------+
+| dept_id | AVG(salary)  |
++---------+--------------+
+|       1 | 29000.000000 |
+|       5 | 28500.000000 |
++---------+--------------+
+2 rows in set (0.00 sec)
+
+
+
+
