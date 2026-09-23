@@ -465,11 +465,10 @@ mysql> SELECT emp_name FROM employee WHERE dept_id = (SELECT dept_id FROM employ
 
 
 
+
 Q52.
 Display departments having more employees than the average
 number of employees per department.
-
-
 
 
 
@@ -1175,6 +1174,32 @@ of the department having the second-highest average salary.
 
 
 
+mysql> SELECT e.emp_name, e.salary FROM employee AS e WHERE salary > ( SELECT MAX(avg_salary) FROM (SELECT AVG(salary) AS avg_salary FROM employee GROUP BY dept_id ORDER BY avg_salary DESC LIMIT 1  OFFSET 1 )AS temp );
++----------+----------+
+| emp_name | salary   |
++----------+----------+
+| Neha     | 60000.00 |
+| Karan    | 55000.00 |
+| Vijay    | 70000.00 |
+| Meena    | 65000.00 |
++----------+----------+
+4 rows in set (0.00 sec)
+
+
+
+mysql> SELECT e.emp_name, e.salary FROM employee AS e WHERE salary > (SELECT AVG(salary) AS avg_salary FROM employee GROUP BY dept_id ORDER BY avg_salary DESC LIMIT 1  OFFSET 1 );
++----------+----------+
+| emp_name | salary   |
++----------+----------+
+| Neha     | 60000.00 |
+| Karan    | 55000.00 |
+| Vijay    | 70000.00 |
+| Meena    | 65000.00 |
++----------+----------+
+4 rows in set (0.00 sec)
+
+
+
 
 
 
@@ -1184,9 +1209,33 @@ Find the employee(s) whose salary is closest to the highest
 salary in the company without being the highest-paid employee.
 
 
+
+mysql> SELECT e.emp_name, e.salary FROM employee AS e ORDER BY ABS(e.salary - (SELECT MAX(salary) FROM employee WHERE salary < (SELECT MAX(salary) FROM employee))) LIMIT 1;
++----------+----------+
+| emp_name | salary   |
++----------+----------+
+| Meena    | 65000.00 |
++----------+----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
 Q87.
 Find departments where the difference between the highest and
 lowest salary is greater than 30000.
+
+
+mysql> SELECT d.dept_name, MIN(e.salary) AS min_sal, MAX(e.salary) AS max_sal FROM employee AS e JOIN department AS d ON d.dept_id = e.dept_id GROUP BY d.dept_id HAVING ( max_sal - min_sal) > 30000;
+Empty set (0.00 sec)
+
+
+
 
 
 Q88.
@@ -1195,14 +1244,66 @@ and whose salary difference from the department average is
 greater than 10000.
 
 
+mysql> SELECT e.* FROM employee AS e WHERE e.salary > (SELECT AVG(salary) FROM employee WHERE dept_id = e.dept_id) AND ABS(e.salary - (SELECT AVG(salary) FROM employee WHERE dept_id
+= e.dept_id)) > 10000;
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    109 | Vijay    | 70000.00 |       2 |
+|    111 | Meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
 Q89.
 Find the department(s) where the highest-paid employee earns
 more than the highest-paid employee of the HR department.
 
 
+mysql> SELECT d.dept_name, MAX(e.salary) AS max_sal FROM employee AS e JOIN department AS d
+ ON d.dept_id = e.dept_id GROUP BY d.dept_id HAVING max_sal > (SELECT MAX(salary) FROM employee WHERE dept_id = (SELECT dept_id FROM department WHERE dept_name = 'HR'));
++-----------+----------+
+| dept_name | max_sal  |
++-----------+----------+
+| IT        | 70000.00 |
+| Finance   | 65000.00 |
+| Sales     | 55000.00 |
+| Admin     | 32000.00 |
++-----------+----------+
+4 rows in set (0.01 sec)
+
+
+
+
+
+
+
 Q90.
 Find employees who earn more than every employee in HR,
 Finance, and Sales.
+
+
+mysql> SELECT e.* FROM employee AS e WHERE e.salary > (SELECT MAX(salary) FROM employee WHERE dept_id IN (SELECT dept_id FROM department WHERE dept_name IN ('HR', 'Finance','Sales')));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    109 | Vijay    | 70000.00 |       2 |
++--------+----------+----------+---------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
 
 
 ============================================================
@@ -1217,7 +1318,22 @@ JOIN
 LIMIT
 WINDOW FUNCTIONS
 
+
+
 Find the employee having the third-highest distinct salary.
+
+mysql> SELECT e.* FROM employee AS e WHERE e.salary = (SELECT DISTINCT salary FROM employee
+ ORDER BY salary DESC limit 1 OFFSET 3);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    107 | Karan    | 55000.00 |       4 |
++--------+----------+----------+---------+
+1 row in set (0.00 sec)
+
+
+
+
 
 
 Q92.
@@ -1225,15 +1341,71 @@ Without using LIMIT or Window Functions, find the employee
 having the second-highest salary in each department.
 
 
+mysql> SELECT e.* FROM employee AS e WHERE e.salary = (SELECT MAX(e1.salary) FROM employee
+AS e1 WHERE e1.dept_id = e.dept_id AND e1.salary < (SELECT MAX(salary) FROM employee WHERE
+dept_id = e1.dept_id));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | Rahul    | 50000.00 |       2 |
+|    104 | Neha     | 60000.00 |       3 |
+|    106 | Sneha    | 45000.00 |       4 |
+|    108 | Pooja    | 28000.00 |       1 |
+|    112 | Arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
 Q93.
 Find the department(s) in which every employee earns more than
 the companys average salary.
+
+
+mysql> SELECT d.dept_name FROM department AS d JOIN employee AS e ON d.dept_id = e.dept_id GROUP BY d.dept_name HAVING MIN(salary) > (SELECT AVG(salary) FROM employee);
++-----------+
+| dept_name |
++-----------+
+| Sales     |
++-----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
 
 
 Q94.
 Find the department(s) in which at least one employee earns more
 than the companys average salary and at least one employee earns
 less than the companys average salary.
+
+
+
+mysql> SELECT d.dept_name FROM department AS d JOIN employee AS e ON e.dept_id = d.dept_id
+GROUP BY d.dept_id HAVING MAX(salary) > (SELECT AVG(salary) FROM employee) AND MIN(salary)
+< (SELECT AVG(salary) FROM employee);
++-----------+
+| dept_name |
++-----------+
+| IT        |
+| Finance   |
++-----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
 
 
 Q95.
@@ -1244,10 +1416,58 @@ Find employees whose salary satisfies all the following:
 3. Less than the highest salary in the company.
 
 
+
+mysql> SELECT e.* FROM employee AS e WHERE e.salary > (SELECT AVG(salary) FROM employee WHERE dept_id = e.dept_id) AND e.salary > (SELECT AVG(salary) FROM employee) AND e.salary < (SELECT MAX(salary) FROM employee);
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    104 | Neha     | 60000.00 |       3 |
+|    107 | Karan    | 55000.00 |       4 |
+|    111 | Meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+3 rows in set (0.01 sec)
+
+
+
+
+
+
+
 Q96.
 Find the department having the highest average salary and then
 display all employees belonging to that department along with
 their salary.
+
+
+
+mysql> SELECT e.*
+    -> FROM employee AS e
+    -> WHERE e.dept_id IN (
+    ->     SELECT e1.dept_id
+    ->     FROM employee AS e1
+    ->     GROUP BY e1.dept_id
+    ->     HAVING NOT EXISTS (
+    ->         SELECT 1
+    ->         FROM employee AS e2
+    ->         GROUP BY e2.dept_id
+    ->         HAVING AVG(e2.salary) > AVG(e1.salary)
+    ->     )
+    -> );
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | Rahul    | 50000.00 |       2 |
+|    103 | Priya    | 40000.00 |       2 |
+|    104 | Neha     | 60000.00 |       3 |
+|    105 | Rohit    | 35000.00 |       3 |
+|    109 | Vijay    | 70000.00 |       2 |
+|    111 | Meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+6 rows in set (0.00 sec)
+
+
+
+
 
 
 Q97.
@@ -1255,15 +1475,108 @@ Find the department having the lowest average salary and then
 display all employees belonging to that department.
 
 
+mysql> SELECT e.* FROM employee AS e WHERE e.dept_id IN (SELECT dept_id FROM employee GROUP BY dept_id HAVING AVG(salary) = (SELECT AVG(salary) FROM employee GROUP BY dept_id ORDER BY AVG(salary) LIMIT 1));
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    110 | Ankit    | 32000.00 |       5 |
+|    112 | Arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
 Q98.
 Find the department with the highest number of employees and
 display all employees belonging to that department.
+
+
+
+
+mysql> SELECT e.*
+    -> FROM employee AS e
+    -> WHERE e.dept_id IN (
+    ->     SELECT dept_id
+    ->     FROM employee
+    ->     GROUP BY dept_id
+    ->     HAVING COUNT(*) = (
+    ->         SELECT MAX(emp_count)
+    ->         FROM (
+    ->             SELECT dept_id, COUNT(*) AS emp_count
+    ->             FROM employee
+    ->             GROUP BY dept_id
+    ->         ) AS temp
+    ->     )
+    -> );
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    102 | Rahul    | 50000.00 |       2 |
+|    103 | Priya    | 40000.00 |       2 |
+|    104 | Neha     | 60000.00 |       3 |
+|    105 | Rohit    | 35000.00 |       3 |
+|    109 | Vijay    | 70000.00 |       2 |
+|    111 | Meena    | 65000.00 |       3 |
++--------+----------+----------+---------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
 
 
 Q99.
 Find the department with the lowest number of employees,
 excluding departments having zero employees, and display its
 employees.
+
+
+
+
+mysql> SELECT e.*
+    -> FROM employee AS e
+    -> WHERE e.dept_id IN (
+    ->     SELECT dept_id
+    ->     FROM employee
+    ->     GROUP BY dept_id
+    ->     HAVING COUNT(*) = (
+    ->         SELECT MIN(emp_count)
+    ->         FROM (
+    ->             SELECT dept_id, COUNT(*) AS emp_count
+    ->             FROM employee
+    ->             GROUP BY dept_id
+    ->         ) AS temp
+    ->     )
+    -> );
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    101 | Amit     | 30000.00 |       1 |
+|    106 | Sneha    | 45000.00 |       4 |
+|    107 | Karan    | 55000.00 |       4 |
+|    108 | Pooja    | 28000.00 |       1 |
+|    110 | Ankit    | 32000.00 |       5 |
+|    112 | Arjun    | 25000.00 |       5 |
++--------+----------+----------+---------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
 
 
 Q100.
@@ -1280,6 +1593,41 @@ emp_id
 emp_name
 salary
 dept_id
+
+
+
+
+
+mysql> SELECT e.*
+    -> FROM employee AS e
+    -> WHERE e.salary > (
+    ->     SELECT AVG(e2.salary)
+    ->     FROM employee AS e2
+    ->     WHERE e2.dept_id = e.dept_id
+    -> )
+    -> AND e.salary > (
+    ->     SELECT AVG(salary)
+    ->     FROM employee
+    -> )
+    -> AND e.salary < (
+    ->     SELECT MAX(e3.salary)
+    ->     FROM employee AS e3
+    ->     WHERE e3.dept_id = e.dept_id
+    -> )
+    -> AND e.dept_id IN (
+    ->     SELECT dept_id
+    ->     FROM employee
+    ->     GROUP BY dept_id
+    ->     HAVING COUNT(*) >= 2
+    -> );
++--------+----------+----------+---------+
+| emp_id | emp_name | salary   | dept_id |
++--------+----------+----------+---------+
+|    104 | Neha     | 60000.00 |       3 |
++--------+----------+----------+---------+
+1 row in set (0.01 sec)
+
+
 
 
 ============================================================
