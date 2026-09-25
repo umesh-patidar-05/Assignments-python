@@ -1,0 +1,121 @@
+1.
+Objective: Create a simple HTML table to display a list of student names and their marks.
+
+Requirements:
+
+Create a table with three columns: Roll Number, Student Name, and Marks.
+Add at least five rows of data.
+Use the <table>, <tr>, <th>, and <td> tags.
+2.
+Scenario: A teacher wants to display a class's grades in a tabular format. The table should include:
+
+Student ID
+Name
+Subject
+Marks
+Assignment: Create an HTML table with 5 rows of data. Add a heading row with proper column names.
+
+
+
+
+
+3.
+Scenario:
+You are tasked with creating a web page for a community center that hosts weekly activities. The community center wants to display a schedule table for their visitors. Some activities span multiple time slots, and you need to use the rowspan attribute to represent this visually in the table.
+
+Instructions:
+File Setup:
+Create a new HTML file and name it community_schedule.html.
+
+Create a Schedule Table:
+Use only basic HTML to create a table representing the activity schedule. Do not use any CSS.
+
+Table Structure Requirements:
+
+The table must have 7 rows for each day of the week (Monday to Sunday).
+It should have 4 columns:
+Day
+Time
+Activity
+Location
+Use the rowspan attribute where an activity spans multiple time slots.
+Activity Details: Use the following schedule (or create your own):
+
+Day           Time             Activity   Location
+Monday 8:00 AM - 9:00 AM Yoga         Room A
+9:00 AM - 11:00 AM Painting Workshop Room B
+Tuesday 10:00 AM - 12:00 PM Cooking Class (2 hrs) Kitchen
+Wednesday 8:00 AM - 9:00 AM Meditation Room C
+Thursday 1:00 PM - 3:00 PM Dance Class (2 hrs) Studio
+        9:00 AM - 12:00 PM Photography Basics Room D
+Note: Ensure that the rowspan attribute is used for activities spanning multiple time slots.
+
+Additional Requirements:
+
+Add a meaningful <caption> for the table.
+Use <thead> for the table headers (Day, Time, Activity, Location).
+Use <tfoot> to add a note, e.g., "Schedule is subject to change."
+File Submission:
+
+Save your file with the name community_schedule.html.
+Ensure the HTML is properly indented and includes comments explaining how rowspan is applied.
+
+4.
+
+ Project Team and Task Management
+Scenario:
+You are working as a web developer for a software company. Your manager has asked you to create a web page that displays the team structure for a project, including each team member's tasks. To organize the information, you must use a nested table to display tasks assigned to each team member.
+
+Assignment Instructions:
+File Setup:
+Create an HTML file named team_tasks.html.
+
+Project Team Table:
+Use basic HTML to create a table representing the project team and their respective tasks.
+
+The outer table will list team members, their roles, and their assigned tasks.
+The tasks for each member will be presented in a nested table.
+Table Structure Requirements:
+
+The outer table should have the following columns:
+Team Member Name
+Role
+Tasks
+Each nested table inside the "Tasks" column should have the following columns:
+Task Name
+Deadline
+Sample Data: Use the following sample data to populate the tables:
+
+Outer Table:
+
+Team Member Name Role Tasks
+Alice        Project Manager See nested table
+Bob        Developer See nested table
+Carol          Tester See nested table
+
+Nested Tables for Tasks:
+
+Alice (Project Manager):
+
+Task Name        Deadline
+Prepare Project Plan 2025-01-20
+Client Communication 2025-01-22
+
+
+Bob (Developer):
+
+Task Name        Deadline
+Develop Login Module 2025-01-25
+Fix Bug #1234        2025-01-27
+
+Carol (Tester):
+
+Task Name      Deadline
+Test Login Module 2025-01-28
+Create Test Report 2025-01-30
+Additional Requirements:
+
+Add a <caption> to the outer table: "Project Team and Task Overview."
+Add a <caption> to each nested table: "Tasks Assigned to [Team Member Name]."
+Ensure the HTML is properly indented for readability.
+Do not use CSS.

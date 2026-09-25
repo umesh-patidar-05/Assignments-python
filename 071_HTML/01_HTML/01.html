@@ -1,0 +1,536 @@
+<!-- 
+1.
+Objective: Create a simple HTML table to display a list of student names and their marks.
+
+Requirements:
+
+Create a table with three columns: Roll Number, Student Name, and Marks.
+Add at least five rows of data.
+Use the <table>, <tr>, <th>, and <td> tags.
+2.
+Scenario: A teacher wants to display a class's grades in a tabular format. The table should include:
+
+Student ID
+Name
+Subject
+Marks
+Assignment: Create an HTML table with 5 rows of data. Add a heading row with proper column names.
+
+
+
+
+
+3.
+Scenario:
+You are tasked with creating a web page for a community center that hosts weekly activities. The community center wants to display a schedule table for their visitors. Some activities span multiple time slots, and you need to use the rowspan attribute to represent this visually in the table.
+
+Instructions:
+File Setup:
+Create a new HTML file and name it community_schedule.html.
+
+Create a Schedule Table:
+Use only basic HTML to create a table representing the activity schedule. Do not use any CSS.
+
+Table Structure Requirements:
+
+The table must have 7 rows for each day of the week (Monday to Sunday).
+It should have 4 columns:
+Day
+Time
+Activity
+Location
+Use the rowspan attribute where an activity spans multiple time slots.
+Activity Details: Use the following schedule (or create your own):
+
+Day           Time             Activity   Location
+Monday 8:00 AM - 9:00 AM Yoga         Room A
+9:00 AM - 11:00 AM Painting Workshop Room B
+Tuesday 10:00 AM - 12:00 PM Cooking Class (2 hrs) Kitchen
+Wednesday 8:00 AM - 9:00 AM Meditation Room C
+Thursday 1:00 PM - 3:00 PM Dance Class (2 hrs) Studio
+        9:00 AM - 12:00 PM Photography Basics Room D
+Note: Ensure that the rowspan attribute is used for activities spanning multiple time slots.
+
+Additional Requirements:
+
+Add a meaningful <caption> for the table.
+Use <thead> for the table headers (Day, Time, Activity, Location).
+Use <tfoot> to add a note, e.g., "Schedule is subject to change."
+File Submission:
+
+Save your file with the name community_schedule.html.
+Ensure the HTML is properly indented and includes comments explaining how rowspan is applied.
+
+4.
+
+ Project Team and Task Management
+Scenario:
+You are working as a web developer for a software company. Your manager has asked you to create a web page that displays the team structure for a project, including each team member's tasks. To organize the information, you must use a nested table to display tasks assigned to each team member.
+
+Assignment Instructions:
+File Setup:
+Create an HTML file named team_tasks.html.
+
+Project Team Table:
+Use basic HTML to create a table representing the project team and their respective tasks.
+
+The outer table will list team members, their roles, and their assigned tasks.
+The tasks for each member will be presented in a nested table.
+Table Structure Requirements:
+
+The outer table should have the following columns:
+Team Member Name
+Role
+Tasks
+Each nested table inside the "Tasks" column should have the following columns:
+Task Name
+Deadline
+Sample Data: Use the following sample data to populate the tables:
+
+Outer Table:
+
+Team Member Name Role Tasks
+Alice        Project Manager See nested table
+Bob        Developer See nested table
+Carol          Tester See nested table
+
+Nested Tables for Tasks:
+
+Alice (Project Manager):
+
+Task Name        Deadline
+Prepare Project Plan 2025-01-20
+Client Communication 2025-01-22
+
+
+Bob (Developer):
+
+Task Name        Deadline
+Develop Login Module 2025-01-25
+Fix Bug #1234        2025-01-27
+
+Carol (Tester):
+
+Task Name      Deadline
+Test Login Module 2025-01-28
+Create Test Report 2025-01-30
+Additional Requirements:
+
+Add a <caption> to the outer table: "Project Team and Task Overview."
+Add a <caption> to each nested table: "Tasks Assigned to [Team Member Name]."
+Ensure the HTML is properly indented for readability.
+Do not use CSS. 
+-->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+
+
+        <table border="1">
+            <tr>
+                <th>Roll Number</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>        
+            <tr>
+                <td>101</td>
+                <td>xyz</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>abc</td>
+                <td>76</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>def</td>
+                <td>87</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>kjk</td>
+                <td>76</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>sfg</td>
+                <td>88</td>
+            </tr>
+        </table>
+</body>
+</html>
+
+
+
+
+<!-- 
+
+┌─────────────┬───────────────┬───────┐
+│ Roll Number │  Student Name │ Marks │ 
+├─────────────┼───────────────┼───────┤
+│ 101         │ xyz           │ 98    │ 
+├─────────────┼───────────────┼───────┤
+│ 102         │ abc           │ 76    │
+├─────────────┼───────────────┼───────┤
+│ 103         │ def           │ 87    │
+├─────────────┼───────────────┼───────┤
+│ 104         │ kjk           │ 76    │
+├─────────────┼───────────────┼───────┤
+│ 105         │ sfg           │ 88    │
+└─────────────┴───────────────┴───────┘
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <br><br><br>
+
+
+        <table border="1">
+                <tr>
+                        <th>Roll Number</th>
+                        <th>Student Name</th>
+                        <th>Marks</th>
+                </tr>
+                <tr>
+                        <td>101</td>
+                        <td>Umesh</td>
+                        <td>99</td>
+                </tr>
+                <tr>
+                        <td>102</td>
+                        <td>Ramesh</td>
+                        <td>88</td>
+                </tr>
+                <tr>
+                        <td>103</td>
+                        <td>Suresh</td>
+                        <td>77</td>
+                </tr>
+                <tr>
+                        <td>104</td>
+                        <td>Rajesh</td>
+                        <td>66</td>
+                </tr>
+                <tr>
+                        <td>105</td>
+                        <td>Mukesh</td>
+                        <td>55</td>
+                </tr>
+
+        </table>
+</body>
+</html>
+
+
+
+<!-- 
+┌────────────┬───────────────┬───────┐
+│ Roll Number│ Student Name  │ Marks │
+├────────────┼───────────────┼───────┤
+│ 101        │Umesh          │ 99    │
+├────────────┼───────────────┼───────┤
+│ 102        │Ramesh         │ 88    │
+├────────────┼───────────────┼───────┤
+│ 103        │Suresh         │ 77    │
+├────────────┼───────────────┼───────┤
+│ 104        │Rajesh         │ 66    │
+├────────────┼───────────────┼───────┤
+│ 105        │Mukesh         │ 55    │
+└────────────┴───────────────┴───────┘
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+
+        <br><br><br>
+
+        <table border="1">
+                <caption>TIME TABLE</caption>
+                <thead>
+                        <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Activity</th>
+                                <th>Location</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                                <td rowspan="2">Monday</td>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>Yoga</td>
+                                <td>Room A</td>
+                                
+                        </tr>
+                        <tr>
+                                <td>9:00 AM - 11:00 AM</td>
+                                <td>Painting Workshop</td>
+                                <td>Room B</td>
+                        </tr>
+                        <tr>
+                                <td>Tuesday</td>
+                                <td>10:00 AM - 12:00 PM</td>
+                                <td>Cooking Class (2 hrs)</td>
+                                <td>Kitchen</td>
+                        </tr>
+                        <tr>
+                                <td>Wednesday</td>
+                                <td>8:00 AM - 9:00 AM</td>
+                                <td>Meditation</td>
+                                <td>Room C</td>
+                        </tr>
+                        <tr>
+                                <td rowspan="2">Thursday</td>
+                                <td>1:00 PM - 3:00 PM</td>
+                                <td>Dance Class (2 hrs)</td>
+                                <td>Studio</td>
+                        </tr>
+                        <tr>
+                                <td>9:00 AM - 12:00 PM</td>
+                                <td>Photography Basics</td>
+                                <td>Room D</td>
+                        </tr>
+                </tbody>
+                <tfoot>
+                        <tr>
+                                <td>Schedule is subject to change.</td>
+                        </tr>        
+                </tfoot>
+        </table>
+</body>
+</html>
+
+
+
+<!-- 
+                               TIME TABLE
+┌───────────┬──────────────────────┬──────────────────────────┬───────────────┐
+│    Day    │         Time         │        Activity          │   Location    │
+├───────────┼──────────────────────┼──────────────────────────┼───────────────┤
+│           │ 8:00 AM - 9:00 AM    │  Yoga                    │ Room A        │
+│ Monday    ├──────────────────────┼──────────────────────────┼───────────────┤
+│           │ 9:00 AM - 11:00 AM   │  Painting Workshop       │ Room B        │
+├───────────┼──────────────────────┼──────────────────────────┼───────────────┤
+│ Tuesday   │ 10:00 AM - 12:00 PM  │  Cooking Class (2 hrs)   │ Kitche   n    │
+├───────────┼──────────────────────┼──────────────────────────┼───────────────┤
+│ Wednesday │ 8:00 AM - 9:00 AM    │ Meditation               │ Room C        │
+├───────────┼──────────────────────┼──────────────────────────┼───────────────┤
+│           │ 1:00 PM - 3:00 PM    │ Dance Class (2 hrs)      │ Studio        │
+│ Thursday  ├──────────────────────┼──────────────────────────┼───────────────┤
+│           │ 9:00 AM - 12:00 PM   │ Photography Basics       │ Room D        │
+├───────────┼──────────────────────┼──────────────────────────┼───────────────┤
+│ Schedule is subject to change.                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <br><br><br>
+
+        <table border="1">
+                <tr>
+                        <th>Team Member Name</th>
+                        <th>Role</th>
+                        <th>Tasks</th>
+                </tr>
+                <tr>
+                        <td>Alice</td>
+                        <td>Project Manager</td>
+                         <td>
+
+                                 <table border="1">
+                                         <tr>
+                                                 <th>Task Name</th>
+                                                 <th>Deadline</th>
+                                         </tr>
+                                         <tr>
+                                                 <td>Prepare Project Plan </td>
+                                                 <td>2025-01-20</td>
+                                         </tr>
+                                         <tr>
+                                                 <td>Client Communication</td>
+                                                 <td>2025-01-22</td>
+                                         </tr>
+                                 </table>
+                                </td>         
+                                
+                </tr>
+                <tr>
+                        <td>Bob</td>
+                        <td>Developer</td>
+                        <td>
+                                <table border="1">
+                                        <tr>
+                                                <th>Task Name</th>
+                                                <th>Deadline</th>
+                                        </tr>
+                                        <tr>
+                                                <td>Develop Login Module</td>
+                                                <td>2025-01-25</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Fix Bug #1234</td>
+                                                <td>2025-01-27</td>
+                                        </tr>
+                                </table>
+                        </td>
+
+                </tr>
+
+                <tr>
+
+                        <td>Carol</td>
+                        <td>Tester</td>
+                        <td>
+                                <table border="1">
+                                        <tr>
+                                                <th>Task Name</th>
+                                                <th>Deadline</th>
+                                        </tr>
+                                        <tr>
+                                                <td>Test Login Module</td>
+                                                <td>2025-01-28</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Create Test Report</td>
+                                                <td>2025-01-30</td>
+                                        </tr>
+                                </table>
+                        </td>
+                        
+                </tr>
+                        
+        </table>
+</body>
+</html>
+
+
+
+
+
+
+<!-- 
+┌──────────────────────┬────────────────────┬────────────────────────────────────────────────────┐
+│ Team Member Name     │ Role               │ Tasks                                              │
+├──────────────────────┼────────────────────┼────────────────────────────────────────────────────┤
+│ Alice                │ Project Manager    │ ┌──────────────────────────┬──────────────┐        │
+│                      │                    │ │        Task Name         │   Deadline   │        │
+│                      │                    │ ├──────────────────────────┼──────────────┤        │
+│                      │                    │ │ Prepare Project Plan     │ 2025-01-20   │        │
+│                      │                    │ ├──────────────────────────┼──────────────┤        │
+│                      │                    │ │ Client Communication     │ 2025-01-22   │        │
+│                      │                    │ └──────────────────────────┴──────────────┘        │
+├──────────────────────┼────────────────────┼────────────────────────────────────────────────────┤
+│ Bob                  │ Developer          │ ┌──────────────────────────┬──────────────┐        │
+│                      │                    │ │        Task Name         │   Deadline   │        │
+│                      │                    │ ├──────────────────────────┼──────────────┤        │
+│                      │                    │ │ Develop Login Module     │ 2025-01-25   │        │
+│                      │                    │ ├──────────────────────────┼──────────────┤        │
+│                      │                    │ │ Fix Bug #1234            │ 2025-01-27   │        │
+│                      │                    │ └──────────────────────────┴──────────────┘        │
+├──────────────────────┼────────────────────┼────────────────────────────────────────────────────┤
+│ Carol                │ Tester             │ ┌──────────────────────────┬──────────────┐        │
+│                      │                    │ │        Task Name         │   Deadline   │        │
+│                      │                    │ ├──────────────────────────┼──────────────┤        │
+│                      │                    │ │ Test Login Module        │ 2025-01-28   │        │
+│                      │                    │ ├──────────────────────────┼──────────────┤        │
+│                      │                    │ │ Create Test Report       │ 2025-01-30   │        │
+│                      │                    │ └──────────────────────────┴──────────────┘        │
+└──────────────────────┴────────────────────┴────────────────────────────────────────────────────┘
+ -->

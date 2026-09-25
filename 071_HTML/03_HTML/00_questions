@@ -1,0 +1,61 @@
+1.
+Create a nested list to represent the following structure:
+
+Subjects:
+Mathematics:
+Algebra
+Geometry
+Science:
+Physics
+Chemistry
+Arts:
+Painting
+Music
+Use appropriate HTML tags to create the nested structure.
+
+2.
+Create an ordered list of tasks for your daily routine:
+
+Each task should include a title and a description (use <li> and <span> or <p>).
+Use custom numbering for the tasks (e.g., start from 101 instead of 1 using the start attribute of <ol>).
+
+3.
+
+Package Details (Nested List)
+The company offers three packages for events:
+
+Basic Package
+Venue booking
+Basic decorations
+Standard Package
+Includes everything in the Basic Package
+Catering for up to 50 guests
+Premium Package
+Includes everything in the Standard Package
+Entertainment and photography
+Task:
+
+Use a nested list to display the details of each package.
+Apply inline styles to differentiate the package titles (e.g., bold or larger font).
+
+
+4.
+You are building the itinerary section for a travel booking website.
+
+Daily Activities (Nested List)
+Display an itinerary for a 3-day tour package:
+
+Day 1:
+Morning: Arrival and hotel check-in
+Afternoon: City tour
+Evening: Welcome dinner
+Day 2:
+Morning: Guided hike
+Afternoon: Museum visit
+Evening: Free time
+Day 3:
+Morning: Breakfast and checkout
+Afternoon: Departure
+Task:
+
+Use a nested list to structure the itinerary.
