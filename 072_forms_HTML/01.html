@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: aquamarine;
+
+        }
+
+        input {
+            background-color: aliceblue;
+        }
+    </style>
+
+</head>
+<body>
+    <br><br><br><br>
+    <form action="01.html">
+        <label for="f_name">Firstname:</label>
+        <input type="text" id="f_name">
+        <br><br>
+        <label for="m_name">Middlename:</label>
+        <input type="text" id="m_name">
+        <br><br>
+        <label for="l_name">Lastname:</label>
+        <input type="text" id="l_name">
+        <br><br>
+        <label for="course">Course:</label>
+        <select  style="background-color: aliceblue;" id="course">
+            <option value="">Course</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="mern">mern</option>
+            <option value="html">html</option>
+        </select>
+        <br><br>
+        <label>Gender:</label>
+        <br>
+        <input type="radio" name="gender" id="male" value="Male">
+        <label for="male">Male</label>
+        <br>
+        <input type="radio" name="gender" id="female" value="Female">
+        <label for="female">Female</label>
+        <br>
+        <input type="radio" name="gender" id="other" value="Other">
+        <label for="other">Other</label>
+        <br><br>
+        <label for="phone">Phone:</label>
+        +91 <input type="tel" id="phone" maxlength="10">
+        <br><br>
+        <label for="address">Address</label>
+        <br>
+        <textarea style="background-color: aliceblue;" id="address" rows="5" cols=""></textarea>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <br><br>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass">
+        <br><br>
+        <label for="re_pass">Re-type password:</label>
+        <input type="password" id="re_pass">
+        <br><br>
+        <button style="background-color: aliceblue;" type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
