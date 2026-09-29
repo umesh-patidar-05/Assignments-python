@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: rgb(38, 137, 155);
+            color: black;
+        }
+
+        input,
+        textarea,
+        select,
+        option {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="02_lab.png">
+        <table border="1">
+            <tr>
+                <th><label for="name">Name</label></th>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <th>Empoloyee Code</th>
+                <td><input type="text" name="" id=""></td>
+            </tr>
+            <tr>
+                <th rowspan="4">Department</th>
+                <td>
+                    <input type="radio" name="dept" id="admin">
+                    <label for="admin">Admin</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="dept" id="hr">
+                    <label for="hr">HR</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="dept" id="tech">
+                    <label for="tech">Technical</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="dept" id="acc">
+                    <label for="acc">Accounts</label>
+                </td>
+            </tr>
+            <tr>
+                <th rowspan="2">date of joining</th>
+                <td>
+                    <select name="date" id="dsate">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                    </select>
+                    <select name="month" id="month">
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select name="year" id="year">
+                        <option>2001</option>
+                        <option>2002</option>
+                        <option>2003</option>
+                        <option>2004</option>
+                        <option>2005</option>
+                        <option>2006</option>
+                        <option value="" selected>2014</option>
+                        <option value="">2015</option>
+                        <option value="">2016</option>
+                        <option value="">2017</option>
+                        <option value="">2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                        <option>2026</option>
+
+                    </select>
+                </td>
+            <tr>
+                <td>
+                    <label for="date">dd</label>
+                    <label for="month">mm</label>
+                    <label for="year">YYYY</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Address</th>
+                <td><textarea name="" id="" rows="4" cols="25"></textarea></td>
+
+            </tr>
+            <tr>
+                <th rowspan="4">Training Program attended</th>
+                <td>
+                    <input type="checkbox" name="program" id="html">
+                    <label for="html">HTML/DHTML</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="program" id="java">
+                    <label for="java">Java</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="program" id="client">
+                    <label for="client">Client/Server</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="program" id="net">
+                    <label for="net">.NET</label>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="need">Trainning Program need to attend</label>
+                </th>
+                <td>
+                    <select name="program" id="program">
+                        <option value="js">JavaScript</option>
+                        <option value="py">Python</option>
+                        <option value="java">java</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label for="send">Send the information at</label>
+                </th>
+                <td>
+                    <a href="02_lab.png">empinfo@capgeemini.com</a>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+
+</html>
