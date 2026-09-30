@@ -1,11 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Candidate Information</title>
 </head>
+
 <body>
-    
+
+    <h1>Candidate Information</h1>
+
+    <form>
+
+        <table border="1">
+
+            <tr>
+                <td>Name: *</td>
+                <td>
+                    <input type="text" name="name" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Password: *</td>
+                <td>
+                    <input type="password" name="password" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Phone number: *</td>
+                <td>
+                    <input type="tel" name="phone" pattern="[0-9]{10}" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Gender: *</td>
+                <td>
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" name="gender" id="female">
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth: *</td>
+                <td>
+                    <input type="date" name="dob" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email: *</td>
+                <td>
+                    <input type="email" name="email" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Highest Qualification: *</td>
+                <td>
+                    <select name="qualification" required>
+                        <option value="">Select Highest Qualification</option>
+                        <option>10th</option>
+                        <option>12th</option>
+                        <option>Diploma</option>
+                        <option>Graduation</option>
+                        <option>Post Graduation</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Courses Interested in: *</td>
+                <td>
+                    <input type="checkbox" name="course" value="java">
+                    Java
+
+                    <input type="checkbox" name="course" value="html">
+                    HTML 5
+
+                    <input type="checkbox" name="course" value="css">
+                    CSS 3
+
+                    <input type="checkbox" name="course" value="angular">
+                    Angular
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Comments: (Mention External Certifications if any)
+                </td>
+                <td>
+                    <textarea name="comments" rows="5" cols="40"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Upload Degree / External Certificates: *</td>
+                <td>
+                    <input type="file" name="certificate" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Submit Information">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
 </body>
+
 </html>
+
