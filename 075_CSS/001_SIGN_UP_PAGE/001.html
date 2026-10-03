@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .main {
+            height: 100vh;
+            width: 100%;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+            
+        }
+        .box {
+            width: 450px;
+            background-color: #FFFFFF;
+            padding: 32px;
+            border-radius: 10px;    
+            color: black;
+        }
+        .box:hover {
+            box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.795);
+        }
+        .box > h2 {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: black;
+            
+        }
+        
+        label, input, button {
+            display: block;
+            
+        }
+        
+        label, input::placeholder {
+            color: #555555;
+        }
+        label {
+            font-size: 15px;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            margin: 14px 0;
+            border-radius: 5px;
+            border: 2px solid #f4f4f9;
+            font-size: 17px;
+        }
+        button {
+            width: 100%;
+            height: 40px;
+            color: white;
+            background-color: #378ae2;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            font-weight: 900;
+            font-size: 15px;
+        }
+        button:hover {
+            background-color: #0666cc;;
+        }
+        
+        p {
+            text-align: center;
+            font-size: 14px;
+            
+        }
+        
+        a {
+            color: #0666cc;
+            text-decoration: none;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0px 0px 5px 1px rgb(30, 122, 228);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <h2>Sign Up</h2>
+            <form action="">
+                <label for="name">Username</label>
+                <input type="text" id="name" placeholder="Enter your username" required>
+                <label for="mail">Email</label>
+                <input type="email" id="mail"  placeholder="Enter your email" required>
+                <label for="pass">Password</label>
+                <input type="password" id="pass" placeholder="Enter your password" required>
+                <label for="repass">Confirm Password</label>
+                <input type="password" name="repass" id="repass" placeholder="Re_enter your password" required>
+                <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="001.html"> Log in </a> </p>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
