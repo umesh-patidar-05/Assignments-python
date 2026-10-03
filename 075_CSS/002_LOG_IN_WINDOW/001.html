@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log-in window</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    color: white;
+}
+        body {
+            background-image: url(back.png);
+            background-size: cover;
+        }
+        .main {
+				width:430px;
+				/* height:360px; */
+				background:rgba(0,0,0,.6);
+				margin:auto;
+				margin-top:100px;
+				border-radius:5px;
+				color:white;
+				padding:50px 50px 20px 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+
+        }
+        .image {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            margin-top: -100px;
+
+        }
+        
+        .image img {
+            	width:150px;
+				height:150px;
+				border-radius:50%;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        table {
+            margin: 15px 0 0 0 ;
+            width: 100%;
+        }
+
+        th {
+            padding-bottom: 25px;
+            font-size: 18px;
+        }
+        input {
+            background: none;
+            border: none;
+            border-bottom: 2px solid white;
+            padding: 10px 5px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: white;
+
+        }
+
+
+
+        input[type = "email"] {
+            display: block;
+            width: 100%;
+
+        }
+
+        
+        input[type = "password"] {
+            display: block;
+            width: 100%;
+
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background: green;
+            padding: 7px 0;
+            font-size: 20px;
+        }
+
+        button:hover {
+            background: rgb(22, 168, 179);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="image">
+            <img src="profile.webp" alt="profile picture">
+
+        </div>
+        <form action="">
+            <table>
+                <tr>
+                    <th>LOGIN WINDOW</th>
+                </tr>
+                <tr>
+                    <td><input type="email" placeholder="Your Email Address"></td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="" id="" placeholder="Your Password"></td>
+                </tr>
+                <tr>
+                    <td>
+                    <input type="checkbox" name="" id="agree">
+                    <label for="agree">Aggree With</label>
+                    <a href="terms.html">Terms & conditions</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <button type="submit">Login</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
