@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caluculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            
+        }
+
+        .main {
+            width: 280px;
+            /* height: 500px; */
+            background: gray;
+            margin: auto;
+            margin-top: 50px;
+            border: 10px solid grey;
+            box-shadow: 3px 4px 4px 1px black;
+        }
+
+        .display {
+            background: white;
+            height: 60px;
+            border: 2px solid black;
+            margin: 1px;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+        }
+
+        .digit {
+            width: 100%;
+            /* height: 80%; */
+        }
+
+        table {
+            width: 100%;
+            /* height: 100%; */
+            display: flex;
+            justify-content: space-evenly;
+            align-content: center;
+
+
+        }
+
+        button {
+            height: 60px;
+            width: 60px;
+            background: rgb(34, 195, 195);
+            color: white;
+            border-radius: 5px;
+            box-shadow: 1px 1px 1px 0px white;
+            font-size: 25px;
+        }
+
+        button:focus {
+            background-color: #1db6e0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="display">
+            <h1>0</h1>
+        </div>
+        <div class="digit">
+            <table>
+                <tr>
+                    <td>
+                        <button>C</button>
+                    </td>
+                    <td>
+                        <button>%</button>
+                    </td>
+                    <td>
+                        <button><=</button>
+                    </td>
+                    <td>
+                        <button>/</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>7</button>
+                    </td>
+                    <td>
+                        <button>8</button>
+                    </td>
+                    <td>
+                        <button>9</button>
+                    </td>
+                    <td>
+                        <button>*</button>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>
+                        <button>4</button>
+                    </td>
+                    <td>
+                        <button>5</button>
+                    </td>
+                    <td>
+                        <button>6</button>
+                    </td>
+                    <td>
+                        <button>-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>1</button>
+                    </td>
+                    <td>
+                        <button>2</button>
+                    </td>
+                    <td>
+                        <button>3</button>
+                    </td>
+                    <td>
+                        <button>+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>00</button>
+                    </td>
+                    <td>
+                        <button>0</button>
+                    </td>
+                    <td>
+                        <button>.</button>
+                    </td>
+                    <td>
+                        <button>=</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
