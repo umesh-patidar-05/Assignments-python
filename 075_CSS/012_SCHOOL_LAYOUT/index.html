@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+
+        .left {
+            width: 15%;
+            height: 100%;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            padding: 18px;
+        }
+
+        .left > h3 {
+            margin-bottom: 10px;
+        }
+
+        .left > ul {
+            list-style: none;
+            font-size: 0px;
+        }
+        
+        .left > ul > li {
+            margin-bottom: 13px;
+        }
+        
+        .left > ul > li > a {
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            background-color: rgb(255 255 255 / 19%);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .left > ul > li > a:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .right {
+            width: 85%;
+            height: 100%;
+            padding: 18px;
+            background: #f4f4f9;
+            color: black;
+        }
+
+        .right > h1 {
+            color: #4CAF50;
+            text-align: center;
+            font-size: 23px;
+            margin-bottom: 18px;
+        }
+
+        .boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+
+        }
+
+        .box {
+            padding: 15PX;
+            text-align: center;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .box > h3 {
+            color: rgba(0, 0, 0, 0.74);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .box > p {
+            color: #4CAF50;
+            font-weight: bolder;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h3>School Dashboard</h3>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Students</a></li>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Classes</a></li>
+                <li><a href="#">Exams</a></li>
+                <li><a href="#">Libray</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>Welcome to the School Dashboard</h1>
+            <div class="boxes">
+                <div class="box">
+                    <h3>Total Students</h3>
+                    <p>500</p>
+                </div>
+                <div class="box">
+                    <h3>Total Teachers</h3>
+                    <p>50</p>
+                </div>
+                <div class="box">
+                    <h3>Classes</h3>
+                    <p>20</p>
+                </div>
+                <div class="box">
+                    <h3>Upcoming Exams</h3>
+                    <p>5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
