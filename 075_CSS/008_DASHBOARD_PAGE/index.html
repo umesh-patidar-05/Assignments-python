@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .side {
+        width: 18%;
+        height: 100%;
+        background: #2c3e50;
+        color: white;
+        padding: 22px;
+    }
+
+    .side > h2{
+        text-align: center;
+        font-size: 25px;
+    }
+    .side > ul {
+        margin-top: 10px;
+        list-style: none;
+        color: white;
+        
+    }
+    
+    .side > ul > li {
+        display: block;
+    }
+    .side > ul > li > a {
+        display: inline-block;
+        color: white;
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 6px;
+        
+
+    }
+    
+    .side > ul > li :hover {
+        background: #34495e;
+    }
+        
+    .main {
+        width: 82%;
+        height: 100%;
+        background-color: white;
+        font-size: 18px;
+        color: #2c3e50;
+        background-color: #f4f4f9;
+    }
+
+    .main > h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .boxes {
+        display: flex;
+        justify-content: space-around;
+        
+        
+    }
+
+    .box {
+        width: 440px;
+        height: 100px;
+        background: #ffffff;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    
+    .box > h3 {
+        margin-bottom: 10px;
+    }
+    
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="side">
+            <h2>My Dashboard</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <h1>Welcome to the Dashboard</h1>
+            <div class="boxes">
+                <div class="box">
+                    <h3>45005</h3>
+                    <p>Total Order</p>
+                </div>
+                <div class="box">
+                    <h3>4364</h3>
+                    <p>Total Sale</p>
+                </div>
+                <div class="box">
+                    <h3>454</h3>
+                    <p>Total Customer</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>

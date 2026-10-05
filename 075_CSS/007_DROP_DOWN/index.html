@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(151, 224, 218);
+        }
+
+        .main {
+            margin: auto;
+            margin-top: 30px;
+            width: 70%;
+            /* height: auto; */
+            /* background: rgba(0, 0, 0, 0.815); */
+            color: white;
+            border-bottom: 5px solid rgb(218, 134, 39);
+            box-shadow: 2px 2px 5px 2px black;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0;
+            font-size: 0;
+            background: rgba(0, 0, 0, 0.815);
+
+        }
+
+        li {
+            display: inline-block;
+
+        }
+
+        .product,
+        .service {
+            position: absolute;
+            display: none;
+            top: 100%;
+            left: 0;
+        }
+
+        .pdt,
+        .ser {
+            position: relative;
+        }
+
+        .product li,
+        .service li {
+            display: block;
+        }
+
+        .product a,
+        .service a {
+            display: block;
+            margin-left: 0;
+        }
+
+        a {
+            display: inline-block;
+            padding: 8px 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-right: 2px solid white;
+            margin-left: 12px;
+
+        }
+
+        .main>ul>li>a:hover,
+        .product li>a:hover,
+        .service li>a:hover {
+            background: rgb(218, 134, 39);
+        }
+
+
+        .pdt:hover .product {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ser:hover .service {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li class="pdt">
+                <a href="#">Product</a>
+                <ul class="product">
+                    <li>
+                        <a href="#">Product1</a>
+                    </li>
+                    <li>
+                        <a href="#">Product2</a>
+                    </li>
+                    <li>
+                        <a href="#">Product3</a>
+                    </li>
+                    <li>
+                        <a href="#">Product4</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="ser">
+                <a href="#">Services</a>
+                <ul class="service">
+                    <li>
+                        <a href="#">Service1</a>
+                    </li>
+                    <li>
+                        <a href="#">Service2</a>
+                    </li>
+                    <li>
+                        <a href="#">Service3</a>
+                    </li>
+                    <li>
+                        <a href="#">Service4</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+            <li>
+                <a href="#">Users</a>
+            </li>
+            <li>
+                <a href="#">Login</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
