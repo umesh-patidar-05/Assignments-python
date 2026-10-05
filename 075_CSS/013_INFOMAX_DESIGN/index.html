@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0px;
+        }
+
+        .header {
+            width: 100vw;
+            height: 8vh;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            position: fixed;
+        }
+
+        .h_left>a {
+            text-decoration: none;
+            color: yellow;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        .h_right {
+            font-size: 0px;
+        }
+
+        .h_right>a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            padding: 5px 15px;
+            font-size: 12px;
+            margin-right: 20px;
+            border-radius: 4px;
+        }
+
+        .log {
+            background: #444444;
+        }
+
+        .h_right>.hom {
+            color: yellow;
+        }
+
+        .h_left:hover>a {
+            color: white;
+        }
+
+
+        .h_right>a:hover {
+            background: #333333;
+        }
+
+        .space {
+            width: 100vw;
+            height: 8vh;
+        }
+
+        .main_head {
+            width: 100vw;
+            height: 100px;
+            background: yellow;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .m_first {
+            font-size: 15px;
+            display: block;
+        }
+
+        .m_second {
+            display: block;
+            font-size: 10px;
+            text-align: right;
+        }
+
+        .main {
+            width: 100vw;
+        }
+
+        .main_left {
+            font-family: Courier, monospace;
+        }
+
+        .main_content {
+            margin-top: 70px;
+            margin-bottom: 70px;
+            text-align: center;
+            font-weight: 100;
+        }
+
+        .main_content>h3 {
+            margin-bottom: 50px;
+        }
+
+        .main_content>p {
+            font-size: 20px;
+            padding-bottom: 5px;
+        }
+
+        .boxes {
+            width: 100vw;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            padding-bottom: 100px;
+        }
+
+        .image {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background: #333333;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .box {
+            width: auto;
+        }
+
+        .box > .image {
+            margin-bottom: 15px;
+
+        }
+
+        .box > h2 {
+            margin-bottom: 15px;
+        }
+
+        .box > ul {
+            padding-left: 20px;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="h_left">
+            <a href="#">Infomax</a>
+        </div>
+        <div class="h_right">
+            <a href="#" class="hom">Home</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Sign up</a>
+            <a href="#" class="log">Log in</a>
+        </div>
+    </div>
+    <div class="space"></div>
+    <div class="main_head">
+        <div class="main_left">
+            <h1>ICA</h1>
+        </div>
+        <div class="main_right">
+            <span class="m_first">
+                <strong>Contact</strong>
+                or call us today
+                <strong>9598948810</strong>
+            </span>
+            <span class="m_second">
+                Business hours Mon-Fri 12:30pm-9pm IST
+            </span>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main_content">
+            <h3>WE HELP YOU TO
+                <span style="color: red;">MAX</span>
+                IMIZE YOUR
+                <span style="color: rgb(83, 151, 207);">INFO</span>
+                RMATION
+            </h3>
+            <p>We Offers the computer Courses Training that meet current Trained of</p>
+            <p>IT Sector</p>
+        </div>
+        <div class="boxes">
+            <div class="box">
+                 <div class="image">
+                    <img src="custom.webp" alt="" srcset="">
+                </div>
+                <h2>Custom solutions</h2>
+                <ul>
+                    <li>Consulting services</li>
+                    <li>Separate and special reports</li>
+                    <li>Dedicated probe groups</li>
+                    <li>And much more</li>
+
+                </ul>
+            </div>
+
+            <div class="box">
+                 <div class="image">
+                    <img src="more_volume.webp" alt="" srcset="">
+                </div>
+                <h2>More volume</h2>
+                <ul>
+                    <li>More pageviews</li>
+                    <li>More Real User Monitoring sites</li>
+                    <li>More checks for monitoring</li>
+                    <li>And much more</li>
+
+                </ul>
+            </div>
+
+            <div class="box">
+                 <div class="image">
+                    <img src="premium.webp" alt="" srcset="">
+                </div>
+                <h2>Premium support</h2>
+                <ul>
+                    <li>24/7 support</li>
+                    <li>Access to Priority support</li>
+                    <li>Dedicated Pingdom technician</li>
+                    <li>And much more</li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
