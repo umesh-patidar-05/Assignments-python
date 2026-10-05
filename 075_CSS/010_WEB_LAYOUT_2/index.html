@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .head {
+        width: 100vw;
+        height: 10vh;
+        background-color: orange;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 4px solid black;
+    }
+
+    main {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+    }
+
+    .left {
+        width: 10%;
+        height: 100%;
+        background: black;
+        color: white;
+        font-size: 10px             ;
+    }
+
+    .left > ul > li {
+        border: 1.5px solid red;
+        background: green;
+        padding: 7px 8px;
+        margin: 0 1px 1.5px 1px;
+        border-radius: 4px;
+
+    }
+    
+    .right {
+        width: 90%;
+        height: 100%;
+        background: pink;
+
+    }
+
+    .left > ul > li:hover {
+        background: blue;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="head">
+            <h1>ONLINE EXAM SYSTEM</h1>
+        </div>
+    </header>
+    <main>
+        <div class="left">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Courses</li>
+                <li>Product</li>
+                <li>Service</li>
+                <li>Gallery</li>
+            </ul>
+
+        </div>
+        <div class="right">
+
+        </div>
+    </main>
+    
+</body>
+
+</html>
